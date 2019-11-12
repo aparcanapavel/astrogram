@@ -1,4 +1,8 @@
 import React from 'react';
+import GreetingContainer from './greetings/greeting_container';
+import { Route, Switch } from 'react-router-dom';
+import LoginFormContainer from './session/login_form_container';
+import SignupFormContainer from './session/signup_form_container';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -7,7 +11,13 @@ export default class App extends React.Component {
 
   render() {
     return <div>
-      <h1>Astrogram</h1>
+      <header>
+        <h1>Astrogram</h1>
+        <GreetingContainer />
+      </header>
+      
+      <Route path="/login" component={LoginFormContainer} />
+      <Route path="/signup" component={SignupFormContainer} />
     </div>
   }
 }
