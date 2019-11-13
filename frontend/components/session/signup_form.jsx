@@ -37,8 +37,15 @@ export default class SignupForm extends React.Component {
       <section className="signup-form-container">
         <div className='signup-form'>
           <h1 className='astrogram-title'>Astrogram</h1>
-
+          <p>Sign up to see photos and videos from your friends.</p>
           <button onClick={this.loginDemoUser}>Log In as Demo User</button>
+
+          <div className="orSignup">
+            <div className='orLine'></div>
+            <div>OR</div>
+            <div className='orLine'></div>
+          </div>
+          
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -62,7 +69,7 @@ export default class SignupForm extends React.Component {
               onChange={this.updateField('password')}
               placeholder='Password'
             />
-
+            <br />
             <button>Sign up</button>
 
             <ul className="formErrors">{errList}</ul>

@@ -51,7 +51,7 @@ export default class LoginForm extends React.Component {
             onChange={this.updateField('password')}
             placeholder='Password'
           />
-
+          <br />
           <button>Log In</button>
 
           <ul className="formErrors">{errList}</ul>

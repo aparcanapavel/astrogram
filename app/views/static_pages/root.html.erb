@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  window.images = {
+    splash: "<%= image_url('phones.jpg') %>",
+  }
+</script>
+
 <% if logged_in? %>
   <script type="text/javascript">
     window.currentUser = <%= render(

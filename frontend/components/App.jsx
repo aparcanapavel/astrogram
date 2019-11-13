@@ -13,11 +13,11 @@ export default class App extends React.Component {
   render() {
     return <div>
       <header>
-        <h1>Astrogram</h1>
+        {/* <h1 className="welcome-logo">Astrogram</h1> */}
         <GreetingContainer />
       </header>
       
-      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
     </div>
   }

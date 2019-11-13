@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SignupFormContainer from '../session/signup_form_container';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -14,10 +15,17 @@ export default class Greeting extends React.Component {
         <button onClick={this.props.logout}>Log Out</button>
       </div>
     ) : (
-      <div className="noUserWelcome">
-        <Link className="btn" to="/signup">Sign Up</Link>
-        <Link className="btn" to="/login">Log In</Link>
-      </div>
+      <section className="noUserWelcomeContainer">
+        <div className="welcomePhones">
+            {/* <img src='./app/assets/images/phones2.png'/> */}
+            <img src={window.images.splash} alt=""/>
+        </div>
+        <div>
+          <SignupFormContainer />
+        </div>
+        {/* <Link className="btn" to="/signup">Sign Up</Link>
+        <Link className="btn" to="/login">Log In</Link> */}
+      </section>
     );
 
     return display;
