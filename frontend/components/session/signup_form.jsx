@@ -30,11 +30,24 @@ export default class SignupForm extends React.Component {
     this.props.login(demoUser);
   }
 
+  componentDidMount() {
+    if (this.props.location.pathname === '/signup'){
+      const signupContainer = document.getElementById('signup');
+      $(signupContainer).addClass('session-form-container');
+    } 
+  }
+
+  componentWillUnmount() {
+    const signupContainer = document.getElementById('signup');
+    $(signupContainer).removeClass('session-form-container');
+  }
+
   render() {
+
     const errList = this.props.errors.map((err, i) => <li key={i}>{err}</li>);
     
     return (
-      <section className="signup-form-container">
+      <section id='signup' className="signup-form-container">
         <div className='signup-form'>
           <h1 className='astrogram-title'>Astrogram</h1>
           <p>Sign up to see photos and videos from your friends.</p>

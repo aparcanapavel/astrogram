@@ -25,16 +25,16 @@ export default class LoginForm extends React.Component {
       username: 'demoUser',
       password: 'password'
     });
-    console.log(demoUser); //I want to see what the demo user variable
+
     this.props.login(demoUser);
-  }
+  }  
 
   render() {
     const errList = this.props.errors.map((err, i) => <li key={i}>{err}</li>);
     
     return (
-    <section className="login-form-container">
-      <div className='login-form'>
+    <section className="session-form-container">
+      <div className='session-form'>
         <h1 className='astrogram-title'>Astrogram</h1>
         <form onSubmit={this.handleSubmit}>
           <input 
@@ -57,10 +57,16 @@ export default class LoginForm extends React.Component {
           <ul className="formErrors">{errList}</ul>
         </form>
 
-        <div onClick={this.loginDemoUser}>Log In as Demo User</div>
+        <div className="orSession">
+          <div className='orLine'></div>
+          <div>OR</div>
+          <div className='orLine'></div>
+        </div>
+
+        <div onClick={this.loginDemoUser} className='demo'>Log In as Demo User</div>
       </div>
 
-      <div className='optional-session-form'>Don't have an account? <Link to='/signup'>Sign un</Link></div>
+      <div className='optional-session-form'>Don't have an account? <Link to='/signup'>Sign up</Link></div>
     </section>
     );
   }

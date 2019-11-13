@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import SignupForm from './signup_form';
 import { signup, login } from '../../actions/session_actions';
 
-const mstp = state => {
+const mstp = (state) => {
   return {
     errors: state.errors.session
   }

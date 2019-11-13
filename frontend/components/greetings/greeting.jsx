@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupFormContainer from '../session/signup_form_container';
+import { Route } from 'react-router-dom';
+import { AuthRoute } from '../../util/route_util';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -16,15 +18,15 @@ export default class Greeting extends React.Component {
       </div>
     ) : (
       <section className="noUserWelcomeContainer">
+
         <div className="welcomePhones">
-            {/* <img src='./app/assets/images/phones2.png'/> */}
             <img src={window.images.splash} alt=""/>
         </div>
+
         <div>
-          <SignupFormContainer />
+          <AuthRoute path="/" component={SignupFormContainer} />
         </div>
-        {/* <Link className="btn" to="/signup">Sign Up</Link>
-        <Link className="btn" to="/login">Log In</Link> */}
+
       </section>
     );
 
