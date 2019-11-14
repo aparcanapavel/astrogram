@@ -5,7 +5,7 @@ export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: '',
+      full_name: '',
       username: '',
       password: ''
     }
@@ -62,8 +62,8 @@ export default class SignupForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
-              value={this.state.fullName}
-              onChange={this.updateField('fullName')}
+              value={this.state.full_name}
+              onChange={this.updateField('full_name')}
               placeholder='Full Name'
             />
             <br />

@@ -109,11 +109,14 @@
   -webkit-appearance: searchfield; 
   margin: 3px 0px;
   padding: 10px 0px;
-  border-radius: 3px;
-}
-.session-form > form > input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: rgb(152, 152, 152);
   padding-left: 8px;
+  border-radius: 3px;
+  box-sizing: border-box;
+
+}
+.session-form > form > input::-webkit-input-placeholder { 
+  /* Chrome/Opera/Safari */
+  color: rgb(152, 152, 152);
 }
 
 .session-form > form > button {
