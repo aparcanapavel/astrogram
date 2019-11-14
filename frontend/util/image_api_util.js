@@ -9,6 +9,8 @@ export const createImage = image => {
   return $.ajax({
     method: 'POST',
     url: '/api/images',
-    data: { image }
+    data: image,
+    contentType: false, //makes sure it doesnt get formatted by rails
+    processData: false
   })
 }

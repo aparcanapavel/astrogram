@@ -12,7 +12,8 @@ export default class LoginForm extends React.Component {
     this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     return this.props.login(this.state);
   }
 

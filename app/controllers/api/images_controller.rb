@@ -4,8 +4,27 @@ class Api::ImagesController < ApplicationController
     render :index
   end
 
+  def show
+    @image = Image.find_by(params[:id])
+    render :show
+  end
+
+  def create
+    @image = Image.new(image_params)
+    @image.author_id = current_user.id
+    if @image.save
+      render :show
+    else
+      render json: ["Please attach an image"], status: 400
+    end
+  rescue ActiveSupport::MessageVerifier::InvalidSignature
+    render json: ["Please attach an image"], status: 400
+
+
+  end
+
   private
   def image_params
-    params.requie(:image).permit(:author_id, :caption)
+    params.require(:image).permit(:caption, :photo)
   end
 end
