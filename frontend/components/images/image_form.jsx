@@ -12,7 +12,6 @@ export default class ImageForm extends React.Component {
   }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
     const formData = new FormData();
     formData.append('image[caption]', this.state.caption);
@@ -31,6 +30,8 @@ export default class ImageForm extends React.Component {
   }
 
   render() {
+    const errList = this.props.errors.map((err, i) => <li key={i}>{err}</li>);
+
     return <section className="post-form">
       <h3>username here</h3>
       <form className="image-upload-form" onSubmit={this.handleSubmit}>
@@ -49,6 +50,8 @@ export default class ImageForm extends React.Component {
         </label>
 
         <button>Upload Image</button>
+
+        <ul className="formErrors">{errList}</ul>
       </form>
     </section>
   }

@@ -2,6 +2,11 @@ import { connect } from 'react-redux';
 import { fetchImages, createImage } from '../../actions/image_actions'
 import ImageForm from './image_form';
 
+const mstp = state => {
+  return {
+    errors: state.errors.image
+  }
+}
 
 const mdtp = dispatch => {
 
@@ -10,4 +15,4 @@ const mdtp = dispatch => {
   }
 }
 
-export default connect(null, mdtp)(ImageForm);
+export default connect(mstp, mdtp)(ImageForm);
