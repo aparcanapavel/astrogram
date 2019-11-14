@@ -5,7 +5,8 @@ export default class ImageForm extends React.Component {
     super(props);
     this.state = {
       caption: "",
-      photoFile: null
+      photoFile: null,
+      photoURL: null
     }
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +23,12 @@ export default class ImageForm extends React.Component {
   }
 
   handleFile(e) {
-    this.setState({ photoFile: e.currentTarget.files[0] })
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    filereader.onloadend = () => {
+
+      this.setState({ photoFile: file, photoURL: filereader.result })
+    }
   }
 
   updateField(field) {

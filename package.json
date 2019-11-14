@@ -24,7 +24,8 @@
     "test": "test"
   },
   "scripts": {
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "webpack": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
