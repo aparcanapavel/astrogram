@@ -29,11 +29,19 @@ export default class ImageForm extends React.Component {
 
       this.setState({ photoFile: file, photoURL: fileReader.result })
     }
-    if(file) fileReader.readAsDataURL(file);
+    if(file) {
+      fileReader.readAsDataURL(file);
+    }
+    //need to see how to not rotate vertical images by default to landscape
   }
+  
 
   updateField(field) {
     return e => this.setState({ [field]: e.target.value });
+  }
+
+  componentDidMount() {
+    //fade in the modals for better UX
   }
 
   render() {
@@ -52,20 +60,23 @@ export default class ImageForm extends React.Component {
 
     return <section className="post-form-container">
       <div className="post-form-modal">
-        <h3>username here</h3>
+        <h3>{this.props.currentUser.username}</h3>
         <form className="image-upload-form" onSubmit={this.handleSubmit}>
           <div className="preview-upload">
             {preview}
           </div>
 
           <label>
-            caption:
+            
             <input
               type="text"
               value={this.state.caption}
               onChange={this.updateField("caption")}
+              placeholder="caption:"
             />
           </label>
+
+          <br/>
 
           <button>Upload Image</button>
 

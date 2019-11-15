@@ -35,7 +35,6 @@ export const fetchImages = () => dispatch => {
 export const createImage = image => dispatch => {
   return ImageAPI.createImage(image)
     .then(image => (dispatch(receiveImage(image))), err => {
-      debugger
       return dispatch(receiveImageErrors(err.responseJSON))
     }
     );
