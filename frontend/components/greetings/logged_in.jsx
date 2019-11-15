@@ -9,8 +9,11 @@ class LoggedIn extends React.Component {
   }
 
   toHome() {
-    debugger
     this.props.history.push('/');
+  }
+
+  componentDidMount() {
+    // this.props.openModal('newPost');
   }
 
   render () {

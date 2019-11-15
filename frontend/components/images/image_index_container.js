@@ -5,7 +5,8 @@ import ImageIndex from './image_index';
 const mstp = state => {
 
   return {
-    images: Object.values(state.entities.posts)
+    images: Object.values(state.entities.posts),
+    currentUser: state.entities.users[state.session.id]
   }
 }
 

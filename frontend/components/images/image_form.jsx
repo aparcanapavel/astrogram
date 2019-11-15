@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class ImageForm extends React.Component {
+class ImageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,6 +11,11 @@ export default class ImageForm extends React.Component {
     }
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toHome = this.toHome.bind(this);
+  }
+
+  toHome() {
+    this.props.history.push('/');
   }
 
   handleSubmit(e) {
@@ -18,7 +24,13 @@ export default class ImageForm extends React.Component {
     formData.append('image[caption]', this.state.caption);
     formData.append('image[photo]', this.state.photoFile);
 
-    return this.props.createImage(formData);
+    this.props.createImage(formData);
+
+    if(this.state.photoURL){
+      this.props.closeModal();
+      this.toHome();
+    }
+
     //turn img form, add a with router on container, '.then" this.props.history.push. to the latest image id
   }
 
@@ -29,16 +41,26 @@ export default class ImageForm extends React.Component {
 
       this.setState({ photoFile: file, photoURL: fileReader.result })
     }
-    if(file) fileReader.readAsDataURL(file);
+    if(file) {
+      fileReader.readAsDataURL(file);
+    }
+    //need to see how to not rotate vertical images by default to landscape
   }
+  
 
   updateField(field) {
     return e => this.setState({ [field]: e.target.value });
   }
 
+  componentDidMount() {
+    //fade in the modals for better UX
+  }
+
   render() {
-    console.log(this.state);
-    const errList = this.props.errors.map((err, i) => <li key={i}>{err}</li>);
+    // console.log(this.state);
+    const errList = this.props.errors.map((err, i) => {
+      return <li key={i}>{err}</li>}
+    );
 
     let preview;
     if (this.state.photoURL) {
@@ -52,20 +74,23 @@ export default class ImageForm extends React.Component {
 
     return <section className="post-form-container">
       <div className="post-form-modal">
-        <h3>username here</h3>
+        <h3>{this.props.currentUser.username}</h3>
         <form className="image-upload-form" onSubmit={this.handleSubmit}>
           <div className="preview-upload">
             {preview}
           </div>
 
           <label>
-            caption:
+            
             <input
               type="text"
               value={this.state.caption}
               onChange={this.updateField("caption")}
+              placeholder="caption:"
             />
           </label>
+
+          <br/>
 
           <button>Upload Image</button>
 
@@ -75,3 +100,5 @@ export default class ImageForm extends React.Component {
     </section>
   }
 }
+
+export default withRouter(ImageForm);
