@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
+;import { connect } from 'react-redux';
 import { fetchImages, createImage } from '../../actions/image_actions'
 import ImageForm from './image_form';
+import { closeModal } from '../../actions/modal_actions';
 
 const mstp = ({ errors, entities, session }) => {
   return {
@@ -13,7 +14,8 @@ const mstp = ({ errors, entities, session }) => {
 const mdtp = dispatch => {
 
   return {
-    createImage: (image) => dispatch(createImage(image))
+    createImage: (image) => dispatch(createImage(image)),
+    closeModal: () => dispatch(closeModal())
   }
 }
 
