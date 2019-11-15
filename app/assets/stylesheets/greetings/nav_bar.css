@@ -1,0 +1,58 @@
+.nav-bar{
+  position: fixed;
+  display: block;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid rgb(230, 229, 229);
+  align-items: center;
+}
+
+.nav-list{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 960px;
+  margin: 6px auto;
+  align-items: center;
+}
+
+.nav-list > li:first-child > i,
+.nav-list > li:first-child > h1 {
+  display: inline-block;
+}
+
+.nav-list > li:first-child > i {
+  font-size: 25px;
+  margin: 20px;
+  box-sizing: border-box;
+  padding-right: 20px;
+  border-right: 1px solid black;
+}
+
+.nav-list > li:first-child {
+  flex-basis: 400px;
+}
+
+.astrogram-nav{
+  font-family: 'Cookie', cursive;
+  font-size: 35px;
+}
+
+.nav-list > li:nth-child(2){
+  justify-content: center;
+  flex-basis: 350px;
+}
+
+.nav-list > li:nth-child(3),
+.nav-list > li:nth-child(4),
+.nav-list > li:nth-child(5){
+  font-size: 20px;
+  margin: 15px;
+  box-sizing: border-box;
+  /* padding-right: 20px; */
+  font-weight: 100;
+}
+
+.nav-list li {
+  cursor: pointer;
+}

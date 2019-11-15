@@ -126,3 +126,12 @@
 .signup-form > form > button {
   margin-top: 10px;
 }
+
+.top-bar{
+  display: block;
+}
+
+.feed{
+  padding-top: 98px;
+  /* position: relative; */
+}
