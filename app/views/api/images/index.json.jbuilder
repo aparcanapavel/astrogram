@@ -1,6 +1,6 @@
 @images.each do |image|
   json.set! image.id do 
-    json.extract! image, :id, :author_id
+    json.extract! image, :id, :author_id, :comment_ids
     json.imageUrl url_for(image.photo)
 
     if image.caption
@@ -10,3 +10,4 @@
     end
   end
 end
+
