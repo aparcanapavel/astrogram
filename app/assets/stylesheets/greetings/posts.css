@@ -69,7 +69,7 @@
 
 .post-likes,
 .post-caption p:first-child,
-.post-caption p:last-child{
+.comment-item-preview p:first-child{
   font-weight: 700;
   font-size: 14px;
   margin-left: 10px;
@@ -84,13 +84,30 @@
   margin-left: 10px;
 }
 
-.post-caption p:last-child{
+.post-caption .num-comments{
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 10px;
   display: block;
   color: rgb(173, 173, 173);
   margin-top: 5px;
 }
 
 .post-caption{
+  padding-bottom: 5px;
+}
+
+.post-comments{
+  position: relative;
+  display: block;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(235, 235, 235); 
+}
+
+.comment-item-preview p{
+  display: inline-block;
+}
+
+.comment-item-preview p:nth-child(2){
+  margin-left: 10px;
 }

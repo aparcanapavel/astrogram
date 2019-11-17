@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageIndexItemContainer from './image_index_item_container';
 
 export default class ImageIndex extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ export default class ImageIndex extends React.Component {
   render () {
     const { images, currentUser, users } = this.props;
     
-    const that = this;
     if(!images){
       return <h1>loading</h1>
     }
@@ -28,36 +28,16 @@ export default class ImageIndex extends React.Component {
 
       let imgAuthor = users[img.authorId].username;
 
-      return <li key={img.id} className="single-post">
-        <div className="post-author">
-          <img /><h3>{imgAuthor}</h3>
-          {deleteButton}
-        </div>
+      let no_comments = img.commentIds.length === 0 ? true : false;
 
-        <img src={img.imageUrl} alt="" />
-
-        <div className="post-icons">
-          <i className="far fa-heart"></i>
-          <i className="far fa-comment"></i>
-        </div>
-
-        <p className="post-likes">### likes</p>
-
-        <div className="post-caption">
-          <p>{imgAuthor}</p>
-          <p>{img.caption}</p>
-          <p>View all ## comments</p>
-        </div>
-
-        <div className="post-comments">
-
-        </div>
-        </li>
-    });
-    
-    const allImages = images.map(image => {
-
-      return <li key={image.id}><img src={image.imageUrl} alt=""/></li>
+      return <ImageIndexItemContainer 
+      deleteButton={deleteButton} 
+      imgAuthor={imgAuthor} 
+      img={img}
+      key={img.id}
+      users={users}
+      no_comments={no_comments}
+      />
     });
     
     return <ul className="posts-feed">{sortedPosts}</ul>

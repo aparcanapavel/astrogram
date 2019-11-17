@@ -28,8 +28,13 @@ class Api::CommentsController < ApplicationController
     render :show
   end
 
+  def index
+    @comments = Comment.where(image_id: params[:image_id])
+    render :index
+  end
+
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :image_id)
   end
 end

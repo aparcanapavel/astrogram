@@ -1,4 +1,4 @@
-export const fetchComments = (imageId) => {
+export const fetchComments = imageId => {
   return $.ajax({
     method: 'GET',
     url: `/api/images/${imageId}/comments`

@@ -13,7 +13,7 @@ class LoggedIn extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.openModal('newPost');
+    // this.props.openModal('newPost'); // for css purposes. delete after
   }
 
   render () {

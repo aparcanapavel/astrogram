@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchImages, deleteImage } from '../../actions/image_actions'
-import { fetchUsers } from '../../actions/user_actions'
+import { fetchImages, deleteImage } from '../../actions/image_actions';
+import { fetchUsers } from '../../actions/user_actions';
 import ImageIndex from './image_index';
 
 const mstp = state => {

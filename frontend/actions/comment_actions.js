@@ -5,6 +5,7 @@ export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 
 const receiveAllComments = comments => {
+
   return {
     type: RECEIVE_ALL_COMMENTS,
     comments
@@ -25,11 +26,9 @@ const receiveCommentErrors = errors => {
   }
 }
 
-export const fetchComments = (imageId) => dispatch => {
+export const fetchComments = imageId => dispatch => {
   return CommentAPI.fetchComments(imageId)
-    .then(comments => (dispatch(receiveAllComments(comments))), err => (
-      dispatch(receiveCommentErrors(err.responseJSON))
-      ));
+    .then(comments => dispatch(receiveAllComments(comments)));
 }
 
 export const fetchComment = commentId => dispatch => {
