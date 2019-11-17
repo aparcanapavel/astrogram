@@ -23,7 +23,7 @@ class LoggedIn extends React.Component {
         <li><input type="text" placeholder="search users"/></li>
         <li onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
         <li><i className="far fa-heart"></i></li>
-        <li><i className="far fa-user"></i></li>
+        <li><i onClick={this.props.logout} className="far fa-user"></i></li>
       </ul>
       <Modal />
     </nav>

@@ -6,9 +6,15 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :authored_images,
+    foreign_key: :author_id,
+    class_name: :Image,
+    dependent: :destroy
+
   has_many :authored_comments, 
     foreign_key: :author_id, 
-    class_name: :Comment
+    class_name: :Comment,
+    dependent: :destroy
 
   # SSPIRE
   def self.find_by_credentials(username, password)

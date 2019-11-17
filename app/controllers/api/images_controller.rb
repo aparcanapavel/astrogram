@@ -19,8 +19,11 @@ class Api::ImagesController < ApplicationController
     end
   rescue ActiveSupport::MessageVerifier::InvalidSignature
     render json: ["Please attach an image"], status: 400
-
-
+  end
+  
+  def destroy
+    @image = current_user.authored_images.find(params[:id])
+    @image.destroy
   end
 
   private

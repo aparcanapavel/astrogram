@@ -14,3 +14,17 @@ export const createImage = image => {
     processData: false
   })
 }
+
+export const deleteImage = imageId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/images/${imageId}`
+  })
+}
+
+export const fetchAuthor = userId => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/users/${userId}`
+  })
+}

@@ -6,21 +6,32 @@ export default class ImageIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchUsers();
     this.props.fetchImages();
   }
 
+  removeImage(imageId) {
+    this.props.deleteImage(imageId);
+  }
+
   render () {
-    const { images } = this.props;
+    const { images, currentUser, users } = this.props;
     
+    const that = this;
     if(!images){
       return <h1>loading</h1>
     }
-    //sorted posts; oldest at the bottom, newest at the top
 
     let sortedPosts = images.sort((a, b) => a.id < b.id ? 1 : a.id > b.id ? -1 : 0).map(img => {
+
+      let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
+
+      let imgAuthor = users[img.authorId].username;
+
       return <li key={img.id} className="single-post">
         <div className="post-author">
-          <img /><h3>{this.props.currentUser.username}</h3>
+          <img /><h3>{imgAuthor}</h3>
+          {deleteButton}
         </div>
 
         <img src={img.imageUrl} alt="" />
@@ -33,7 +44,7 @@ export default class ImageIndex extends React.Component {
         <p className="post-likes">### likes</p>
 
         <div className="post-caption">
-          <p>{this.props.currentUser.username}</p>
+          <p>{imgAuthor}</p>
           <p>{img.caption}</p>
           <p>View all ## comments</p>
         </div>

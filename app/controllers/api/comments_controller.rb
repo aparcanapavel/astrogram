@@ -13,7 +13,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render :show
     else
-      # add error to erros reducer
+      render json: ["Comment cannot be blank"], status: 400
     end
   end
 
