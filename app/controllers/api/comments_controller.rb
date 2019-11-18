@@ -9,7 +9,6 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
     # @comment.image_id = params[:image_id]
-    debugger
     if @comment.save
       render :show
     else
