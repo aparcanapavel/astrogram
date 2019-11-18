@@ -19,9 +19,8 @@ export default class ImageIndexItem extends React.Component {
   submitComment(e) {
     e.preventDefault();
     const newComment = Object.assign({}, this.state, { image_id: this.props.img.id});
-    // newComment[imageId] = this.props.img.id;
-    console.log(this.state);
     this.props.createComment(newComment);
+    this.setState({ body: "" });
   }
 
   updateField(field) {
