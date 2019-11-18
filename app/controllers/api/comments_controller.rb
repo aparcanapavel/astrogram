@@ -8,8 +8,8 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
-    @comment.image_id = params[:image_id]
-
+    # @comment.image_id = params[:image_id]
+    debugger
     if @comment.save
       render :show
     else

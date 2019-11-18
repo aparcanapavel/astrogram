@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 export default class ImageIndexItem extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      body: ""
+    }
+    this.submitComment = this.submitComment.bind(this);
   }
 
   componentDidMount() {
@@ -14,7 +18,14 @@ export default class ImageIndexItem extends React.Component {
 
   submitComment(e) {
     e.preventDefault();
-    console.log("todo: submit new comment");
+    const newComment = Object.assign({}, this.state, { image_id: this.props.img.id});
+    // newComment[imageId] = this.props.img.id;
+    console.log(this.state);
+    return this.props.createComment(newComment);
+  }
+
+  updateField(field) {
+    return e => this.setState({ [field]: e.target.value });
   }
 
   render() {
@@ -30,12 +41,11 @@ export default class ImageIndexItem extends React.Component {
       </li>
     })
 
-    const numComments = comments.length > 1 ? <p className="num-comments">View all {comments.length} comments</p> : null
+    const numComments = comments.length > 4 ? <p className="num-comments">View all {comments.length} comments</p> : null
 
-    if(comments.length > 1){
-      comment_list = comment_list.slice(0,1);
-      // debugger
-    }
+    // if(comments.length > 1){
+    //   comment_list = comment_list.slice(0,1);
+    // }
 
     return <li key={img.id} className="single-post">
       <div className="post-author">
@@ -64,13 +74,14 @@ export default class ImageIndexItem extends React.Component {
 
       <form className="new-comment" onSubmit={this.submitComment}>
         
-        <input 
+        <textarea 
         id="new-comment-field"
-        type="text"
         placeholder="Add a comment..."
+        onChange={this.updateField("body")}
+        value={this.state.body}
         />
 
-        <input type="submit" value="post" />
+        <input type="submit" value="Post" disabled={this.state.commentBody === "" ? 'disabled' : null}/>
       </form>
     </li>
   }

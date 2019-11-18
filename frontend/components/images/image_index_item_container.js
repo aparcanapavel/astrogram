@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchComments } from '../../actions/comment_actions';
+import { fetchComments, createComment } from '../../actions/comment_actions';
 import ImageIndexItem from './image_index_item';
 
 const mstp = state => {
@@ -11,7 +11,8 @@ const mstp = state => {
 
 const mdtp = dispatch => {
   return {
-    fetchComments: imageId => dispatch(fetchComments(imageId))
+    fetchComments: imageId => dispatch(fetchComments(imageId)),
+    createComment: comment => dispatch(createComment(comment))
   }
 }
 

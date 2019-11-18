@@ -24,6 +24,8 @@
   border: 1px solid rgb(235, 235, 235);
   background-color: white;
   border-radius: 3px;
+  display: block;
+  position: relative;
 }
 
 .post-author img {
@@ -55,7 +57,7 @@
 .post-icons {
   display: flex;
   flex-direction: row;
-  margin-left: 10px;
+  margin-left: 6px;
 }
 
 .post-icons i {
@@ -110,4 +112,43 @@
 
 .comment-item-preview p:nth-child(2){
   margin-left: 10px;
+}
+
+.new-comment {
+  display: block;
+  position: relative;
+  padding: 15px;
+}
+
+.new-comment input,
+#new-comment-field{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#new-comment-field {
+  /* margin: 15px 10px;  */
+  height: 18px;
+  width: 85%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+#new-comment-field::placeholder {
+  color: rgb(152, 152, 152);
+}
+
+.new-comment input[type="submit"]:disabled {
+  color: rgba(0, 140, 247, 0.303);
+  cursor: default;
+}
+
+.new-comment input{
+  border: 0px;
+  width: 11%;
+  font-size: 15px;
+  color: rgba(0, 140, 247, 0.954);
+  float: right;
+  cursor: pointer;
+  font-weight: 600;
 }

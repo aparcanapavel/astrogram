@@ -27,6 +27,7 @@ const receiveImageErrors = errors => {
 }
 
 const removeImage = imageId => {
+  //need to make the reducer for this
   return {
     type: DELETE_IMAGE,
     imageId
