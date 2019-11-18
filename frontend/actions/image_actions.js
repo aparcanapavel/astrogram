@@ -5,10 +5,10 @@ export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const RECEIVE_IMAGE_ERRORS = 'RECEIVE_IMAGE_ERRORS';
 export const DELETE_IMAGE = 'DELETE_IMAGE';
 
-const receiveAllImages = images => {
+const receiveAllImages = payload => {
   return {
     type: RECEIVE_ALL_IMAGES,
-    images
+    payload
   }
 }
 
@@ -36,7 +36,7 @@ const removeImage = imageId => {
 
 export const fetchImages = () => dispatch => {
   return ImageAPI.fetchImages()
-    .then(images => (dispatch(receiveAllImages(images))), err => (
+    .then(payload => (dispatch(receiveAllImages(payload))), err => (
       dispatch(receiveImageErrors(err.responseJSON))
     ));
 }

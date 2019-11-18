@@ -1,17 +1,22 @@
 import { connect } from 'react-redux';
-import { fetchComments, createComment } from '../../actions/comment_actions';
+import { fetchComments, deleteComment, createComment } from '../../actions/comment_actions';
 import ImageIndexItem from './image_index_item';
 
-const mstp = state => {
+const mstp = (state, ownProps) => {
+  const comments = Object.values(state.entities.comments).filter(comment => {
+    return comment.imageId === ownProps.img.id;
+  })
+
   return {
     currentUser: state.entities.users[state.session.id],
-    comments: Object.values(state.entities.comments)
+    comments
   }
 }
 
 const mdtp = dispatch => {
   return {
     fetchComments: imageId => dispatch(fetchComments(imageId)),
+    deleteComment: commentId => dispatch(deleteComment(commentId)),
     createComment: comment => dispatch(createComment(comment))
   }
 }

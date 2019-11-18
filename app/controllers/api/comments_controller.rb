@@ -17,9 +17,12 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = current_user.authored_comments.find(params[:id])
-    @comment.destroy
-    # redirect to image show page
+    @comment = Comment.find(params[:id])
+    if(@comment.author_id == current_user.id || @comment.image.author_id == current_user.id)
+      @comment.destroy
+
+    end
+
   end
 
   def show

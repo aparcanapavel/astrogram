@@ -82,6 +82,13 @@
   font-size: 14px;
 }
 
+.post-caption p:first-child,
+.comment-item-preview p:first-child,
+.comment-item-preview:hover i,
+.new-comment input{
+  cursor: pointer;
+}
+
 .post-caption p:nth-child(2){
   margin-left: 10px;
 }
@@ -114,6 +121,18 @@
   margin-left: 10px;
 }
 
+.comment-item-preview i{
+  display: none;
+}
+
+.comment-item-preview:hover i {
+  display: block;
+  float: right;
+  margin-right: 10px;
+  font-size: 12px;
+  padding: 3px;
+}
+
 .new-comment {
   display: block;
   position: relative;
@@ -127,7 +146,6 @@
 }
 
 #new-comment-field {
-  /* margin: 15px 10px;  */
   height: 18px;
   width: 85%;
   box-sizing: border-box;
@@ -149,6 +167,5 @@
   font-size: 15px;
   color: rgba(0, 140, 247, 0.954);
   float: right;
-  cursor: pointer;
   font-weight: 600;
 }

@@ -28,7 +28,7 @@ class ImageForm extends React.Component {
 
     if(this.state.photoURL){
       this.props.closeModal();
-      this.toHome();
+      this.props.history.push("/");
     }
 
     //turn img form, add a with router on container, '.then" this.props.history.push. to the latest image id

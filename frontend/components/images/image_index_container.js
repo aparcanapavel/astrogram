@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchImages, deleteImage } from '../../actions/image_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import ImageIndex from './image_index';
+import { fetchComments } from '../../actions/comment_actions';
 
 const mstp = state => {
   return {
@@ -15,7 +16,8 @@ const mdtp = dispatch => {
   return {
     fetchImages: () => dispatch(fetchImages()),
     deleteImage: imageId => dispatch(deleteImage(imageId)),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
+    fetchComments: imageId => dispatch(fetchComments(imageId))
   }
 }
 

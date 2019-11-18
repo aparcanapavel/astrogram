@@ -11,9 +11,9 @@ export default class ImageIndexItem extends React.Component {
   }
 
   componentDidMount() {
-    if(!this.props.no_comments){
-      this.props.fetchComments(this.props.img.id);
-    }
+    // if (this.props.img.commentIds.length > 0){
+    //   this.props.fetchComments(this.props.img.id);
+    // }
   }
 
   submitComment(e) {
@@ -21,7 +21,7 @@ export default class ImageIndexItem extends React.Component {
     const newComment = Object.assign({}, this.state, { image_id: this.props.img.id});
     // newComment[imageId] = this.props.img.id;
     console.log(this.state);
-    return this.props.createComment(newComment);
+    this.props.createComment(newComment);
   }
 
   updateField(field) {
@@ -29,19 +29,30 @@ export default class ImageIndexItem extends React.Component {
   }
 
   render() {
-    const {deleteButton, img, imgAuthor, comments, users } = this.props;
+    const { deleteButton, img, imgAuthor, comments, users, currentUser } = this.props;
+    
 
     let comment_list = comments.map(comment => {
-
       let commentAuthor = users[comment.authorId].username;
 
-      return <li className="comment-item-preview" key={comment.id}>
-        <p>{commentAuthor}</p>
-        <p>{comment.body}</p>
-      </li>
-    })
+      if ((currentUser.id === comment.authorId) || (img.authorId === currentUser.id)) {
+        return <li className="comment-item-preview" key={comment.id}>
+          <p>{commentAuthor}</p>
+          <p>{comment.body}</p>
+          <i onClick={() => this.props.deleteComment(comment.id)} className="far fa-trash-alt"></i>
+        </li>
 
-    const numComments = comments.length > 4 ? <p className="num-comments">View all {comments.length} comments</p> : null
+      } else {
+        return <li className="comment-item-preview" key={comment.id}>
+          <p>{commentAuthor}</p>
+          <p>{comment.body}</p>
+        </li>
+      }
+    });
+
+
+
+    const numComments = img.commentIds.length > 4 ? <p className="num-comments">View all {comments.length} comments</p> : null
 
     // if(comments.length > 1){
     //   comment_list = comment_list.slice(0,1);
@@ -81,7 +92,7 @@ export default class ImageIndexItem extends React.Component {
         value={this.state.body}
         />
 
-        <input type="submit" value="Post" disabled={this.state.commentBody === "" ? 'disabled' : null}/>
+        <input type="submit" value="Post" disabled={this.state.body === "" ? 'disabled' : null}/>
       </form>
     </li>
   }
