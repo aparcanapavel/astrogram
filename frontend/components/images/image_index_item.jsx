@@ -10,12 +10,6 @@ export default class ImageIndexItem extends React.Component {
     this.submitComment = this.submitComment.bind(this);
   }
 
-  componentDidMount() {
-    // if (this.props.img.commentIds.length > 0){
-    //   this.props.fetchComments(this.props.img.id);
-    // }
-  }
-
   submitComment(e) {
     e.preventDefault();
     const newComment = Object.assign({}, this.state, { image_id: this.props.img.id});
