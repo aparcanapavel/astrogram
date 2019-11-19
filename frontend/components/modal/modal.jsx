@@ -7,22 +7,21 @@ function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
-  // let component;
-  // switch (modal) {
-  //   case 'newPost':
-  //     // component = <NewPostContainer />;
-  //     break;
-  //   case 'viewPost':
-  //     // component = <ViewPostContainer />;
-  //     break;
-  //   default:
-  //     return null;
-  // }
+  let component;
+  switch (modal) {
+    case 'newPost':
+      component = <ImageFormContainer />;
+      break;
+    // case 'viewPost':
+    //   // component = <ViewPostContainer />;
+    //   break;
+    default:
+      return null;
+  }
   return (
     <div className="modal-background" id="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
-        {/* {component} */}
-        <ImageFormContainer />
+        {component}
       </div>
     </div>
   );

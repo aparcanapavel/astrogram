@@ -28,6 +28,24 @@
   position: relative;
 }
 
+.post-img {
+  position: relative;
+  width: 100%;
+}
+
+#heartIcon {
+  position: absolute;
+  color: white;
+  display: none;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 47%;
+}
+
+
+
 .post-author img {
   width: 30px;
   height: 30px;
@@ -67,6 +85,10 @@
 
 .post-icons i:nth-child(2){
   margin-left: 10px;
+}
+
+.post-icons > .fas{
+  color: red;
 }
 
 .post-likes,
@@ -118,7 +140,10 @@
 }
 
 .comment-item-preview p:nth-child(2){
-  margin-left: 10px;
+  margin-left: 5px;
+  font-size: 14px;
+  color: rgb(31, 31, 31);  
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .comment-item-preview i{
@@ -169,3 +194,4 @@
   float: right;
   font-weight: 600;
 }
+
