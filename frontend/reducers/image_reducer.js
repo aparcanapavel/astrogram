@@ -12,6 +12,7 @@ export default (state = {}, action) => {
       return Object.assign({}, action.payload.images);
 
     case RECEIVE_IMAGE:
+      debugger
       return Object.assign({}, state, { [action.image.id]: action.image });
 
     case DELETE_IMAGE:
