@@ -16,6 +16,11 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :destroy
 
+  has_many :authored_likes, 
+    foreign_key: :author_id, 
+    class_name: :Like,
+    dependent: :destroy
+
   # SSPIRE
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

@@ -8,6 +8,7 @@ export default class ImageIndexItem extends React.Component {
       body: ""
     }
     this.submitComment = this.submitComment.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   submitComment(e) {
@@ -21,8 +22,22 @@ export default class ImageIndexItem extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
+  handleLike(imageId) {
+    const { currentUser, likes } = this.props;
+
+    for(let i = 0; i < likes.length; i++){
+      if(likes[i].authorId === currentUser.id){
+        this.props.deleteLike(likes[i].id);
+      }
+    }
+    if (likes.every(like => like.authorId !== currentUser.id)) {
+      this.props.createLike({ image_id: imageId, author_id: currentUser.id });
+    }
+    
+  }
+
   render() {
-    const { deleteButton, img, imgAuthor, comments, users, currentUser } = this.props;
+    const { deleteButton, img, imgAuthor, comments, users, currentUser, likes } = this.props;
     
 
     let comment_list = comments.map(comment => {
@@ -43,6 +58,14 @@ export default class ImageIndexItem extends React.Component {
       }
     });
 
+    let postLikes;
+    if(likes.length > 1){
+      postLikes = <p className="post-likes">{likes.length} likes</p>;
+    } else if (likes.length === 0){
+      postLikes = null;
+    } else {
+      postLikes = <p className="post-likes">{likes.length} like</p>;
+    }
 
 
     const numComments = img.commentIds.length > 4 ? <p className="num-comments">View all {comments.length} comments</p> : null
@@ -60,11 +83,11 @@ export default class ImageIndexItem extends React.Component {
       <img src={img.imageUrl} alt="" />
 
       <div className="post-icons">
-        <i className="far fa-heart"></i>
+        <i className="far fa-heart" onClick={() => this.handleLike(img.id)}></i>
         <i className="far fa-comment"></i>
       </div>
 
-      <p className="post-likes">### likes</p>
+      {postLikes}
 
       <div className="post-caption">
         <p>{imgAuthor}</p>

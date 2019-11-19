@@ -1,6 +1,6 @@
 class Api::ImagesController < ApplicationController
   def index
-    @images = Image.includes(:comments).all
+    @images = Image.includes(:comments, :likes).all
     render :index
   end
 
