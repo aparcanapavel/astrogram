@@ -184,6 +184,8 @@
 .new-comment input[type="submit"]:disabled {
   color: rgba(0, 140, 247, 0.303);
   cursor: default;
+  background-color: transparent;
+  border: 0px;
 }
 
 .new-comment input{
@@ -193,5 +195,6 @@
   color: rgba(0, 140, 247, 0.954);
   float: right;
   font-weight: 600;
+  background-color: transparent;
 }
 
