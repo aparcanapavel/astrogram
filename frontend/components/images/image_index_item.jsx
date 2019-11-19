@@ -53,7 +53,7 @@ export default class ImageIndexItem extends React.Component {
   render() {
     const { deleteButton, img, imgAuthor, comments, users, currentUser, likes } = this.props;
     
-
+  
     let comment_list = comments.map(comment => {
       let commentAuthor = users[comment.authorId].username;
 
