@@ -19,10 +19,10 @@ const receiveFollow = follow => {
   }
 }
 
-const removeFollow = followId => {
+const removeFollow = follow => {
   return {
     type: REMOVE_FOLLOW,
-    followId
+    follow
   }
 }
 
@@ -40,16 +40,20 @@ export const fetchFollowers = userId => dispatch => {
      ));
 }
 
-export const followUser = userId => dispatch => {
-  return FollowsAPI.followUser(userId)
-    .then(follow => (dispatch(receiveFollow(follow))), err => (
+export const followUser = follow => dispatch => {
+  return FollowsAPI.followUser(follow)
+    .then(follow => { 
+      dispatch(receiveFollow(follow))
+    }, err => (
       dispatch(receiveFollowErrors(err.responseJSON))
     ));
 }
 
-export const unfollowUser = userId => dispatch => {
-  return FollowsAPI.unfollowUser(userId)
-    .then(follow => (dispatch(removeFollow(follow.id))), err => (
+export const unfollowUser = followId => dispatch => {
+  return FollowsAPI.unfollowUser(followId)
+    .then((follow) => { 
+      dispatch(removeFollow(follow))
+    }, err => (
       dispatch(receiveFollowErrors(err.responseJSON))
     ));
 }

@@ -1,12 +1,16 @@
 const FollowsAPI = {
-  followUser: userId => FollowsAPI.changeFollowStatus(userId, 'POST'),
-
-  unfollowUser: userId => FollowsAPI.changeFollowStatus(userId, 'DELETE'),
-
-  changeFollowStatus: (id, method) => {
+  followUser: (follow) => {
     return $.ajax({
-      url: `/api/users/${id}/follows`,
-      method
+      url: `/api/follows`,
+      method: 'POST',
+      data: { follow }
+    })
+  },
+
+  unfollowUser: followId => {
+    return $.ajax({
+      url: `/api/follows/${followId}`,
+      method: 'DELETE'
     })
   },
 

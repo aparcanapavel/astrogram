@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
+import Modal from '../modal/modal';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -21,7 +22,10 @@ export default class LoginForm extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  loginDemoUser() {
+  loginDemoUser(e) {
+    if (e.altKey) {
+      return this.props.openModal('loginOptions');
+    }
     const demoUser = Object.assign({}, {
       username: 'demoUser',
       password: 'password'
@@ -68,6 +72,7 @@ export default class LoginForm extends React.Component {
       </div>
 
       <div className='optional-session-form'>Don't have an account? <Link to='/signup'>Sign up</Link></div>
+        <Modal />
     </section>
     );
   }

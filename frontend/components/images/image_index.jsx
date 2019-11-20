@@ -7,8 +7,7 @@ export default class ImageIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUsers();
-    this.props.fetchImages();
+    this.props.fetchUsers().then(() => this.props.fetchImages());
   }
 
   removeImage(imageId) {
@@ -26,7 +25,7 @@ export default class ImageIndex extends React.Component {
 
       let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
 
-      let imgAuthor = users[img.authorId].username;
+      let imgAuthor = users[img.authorId];
 
       let no_comments = img.commentIds.length === 0 ? true : false;
 
@@ -36,7 +35,7 @@ export default class ImageIndex extends React.Component {
       img={img}
       key={img.id}
       users={users}
-      no_comments={no_comments}
+      currentUser={currentUser}
       />
     });
     

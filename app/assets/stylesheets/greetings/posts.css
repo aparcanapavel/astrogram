@@ -31,6 +31,7 @@
 .post-img {
   position: relative;
   width: 100%;
+  touch-action: manipulation;
 }
 
 #heartIcon {
@@ -44,8 +45,6 @@
   top: 47%;
 }
 
-
-
 .post-author img {
   width: 30px;
   height: 30px;
@@ -55,9 +54,25 @@
 }
 
 .post-author img,
-.post-author h3{
+.post-author h3,
+.post-author ul{
   display: inline-block;
   vertical-align: middle;
+}
+
+.post-author .follow-button,
+#follow-button{
+  list-style: outside;
+  list-style-type: initial;
+  margin-left: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  color: rgb(103, 103, 103);
+}
+
+#follow-button{
+  color: rgba(0, 140, 247, 0.954);
+  list-style: black;
 }
 
 .post-author i {

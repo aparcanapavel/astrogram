@@ -10,6 +10,8 @@ export default class ImageIndexItem extends React.Component {
     this.submitComment = this.submitComment.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.likeIcon;
+    this.handleFollow = this.handleFollow.bind(this);
+    this.is_following = this.props.imgAuthor.followerIds.includes(this.props.currentUser.id)
   }
 
   submitComment(e) {
@@ -46,8 +48,18 @@ export default class ImageIndexItem extends React.Component {
     
   }
 
-  componentWillUnmount() {
-    // this.clearTimeOuts();
+  handleFollow(imgAuthorId) {
+    let followData ;
+    if (this.props.imgAuthor.followerIds.includes(this.props.currentUser.id)) {
+      console.log("unfollowing...");
+      this.props.unfollowUser(imgAuthorId);
+    } else {
+      console.log("following...");
+      followData = {
+        followee_id: imgAuthorId
+      }
+      this.props.followUser(followData);
+    }
   }
 
   render() {
@@ -93,10 +105,23 @@ export default class ImageIndexItem extends React.Component {
     // if(comments.length > 1){
     //   comment_list = comment_list.slice(0,1);
     // }
+    let followButton;
+    if(imgAuthor.followerIds.includes(currentUser.id)){
+
+      followButton = <li className="follow-button" onClick={() => this.handleFollow(imgAuthor.id)}>Following</li>;
+
+    } else if (imgAuthor.id === currentUser.id){
+      followButton = null;
+
+    } else {
+      followButton = <li id="follow-button" onClick={() => this.handleFollow(imgAuthor.id)}>Follow</li>
+
+    }
 
     return <li key={img.id} className="single-post">
       <div className="post-author">
-        <img /><h3>{imgAuthor}</h3>
+        <img /><h3>{imgAuthor.username}</h3>
+        <ul>{followButton}</ul>
         {deleteButton}
       </div>
 
@@ -113,7 +138,7 @@ export default class ImageIndexItem extends React.Component {
       {postLikes}
 
       <div className="post-caption">
-        <p>{imgAuthor}</p>
+        <p>{imgAuthor.username}</p>
         <p>{img.caption}</p>
         {numComments}
       </div>

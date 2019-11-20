@@ -1,9 +1,11 @@
 import { RECEIVE_ALL_USERS } from "../actions/user_actions";
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions'
+import { RECEIVE_FOLLOW, REMOVE_FOLLOW, RECEIVE_FOLLOW_ERRORS, RECEIVE_ALL_FOLLOWERS } from '../actions/follow_actions';
 
 //need to redo this to accept all the users
 export default (state = {}, action) => {
   Object.freeze(state);
+  const copyState = Object.assign({}, state);
 
   switch (action.type) {
     case RECEIVE_ALL_USERS:
@@ -12,6 +14,22 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, { [action.user.id]: action.user });
       
+    case RECEIVE_FOLLOW:
+      copyState[action.follow.followeeId].followerIds.push(action.follow.followerId);
+      copyState[action.follow.followerId].followeeIds.push(action.follow.followeeId);
+
+      return copyState;
+
+    case REMOVE_FOLLOW:
+      const followeeIds = copyState[action.follow.followeeId].followerIds;
+      const followeeIdx = followeeIds.indexOf(action.follow.followerId);
+      const followerIds = copyState[action.follow.followerId].followeeIds;
+      const followerIdx = followerIds.indexOf(action.follow.followeeId);
+      delete followeeIds[followeeIdx];
+      delete followerIds[followerIdx];
+
+      return copyState;
+
     case LOGOUT_CURRENT_USER:
       return {};
 

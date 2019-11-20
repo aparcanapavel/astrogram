@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchComments, deleteComment, createComment } from '../../actions/comment_actions';
 import ImageIndexItem from './image_index_item';
 import { createLike, deleteLike } from '../../actions/like_actions';
+import { unfollowUser, followUser } from '../../actions/follow_actions';
 
 const mstp = (state, ownProps) => {
   const comments = Object.values(state.entities.comments).filter(comment => {
@@ -24,7 +25,9 @@ const mdtp = dispatch => {
     deleteComment: commentId => dispatch(deleteComment(commentId)),
     createComment: comment => dispatch(createComment(comment)),
     createLike: like => dispatch(createLike(like)),
-    deleteLike: likeId => dispatch(deleteLike(likeId))
+    deleteLike: likeId => dispatch(deleteLike(likeId)),
+    followUser: follow => dispatch(followUser(follow)),
+    unfollowUser: followId => dispatch(unfollowUser(followId))
   }
 }
 
