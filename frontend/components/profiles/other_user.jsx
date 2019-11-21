@@ -1,23 +1,23 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class UserShow extends React.Component{
-  constructor(props){
+class UserShow extends React.Component {
+  constructor(props) {
     super(props)
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogout(e){
+  handleLogout(e) {
     e.preventDefault;
     this.props.logout();
     this.props.history.push('/');
   }
 
   componentDidMount() {
-    this.props.fetchImages(user.id);
+    this.props.fetchUsers().then(() => fetchImages(user.id));
   }
 
-  render() {    
+  render() {
     const { user, posts } = this.props;
     debugger
     const followers = user.followeeIds.length;
@@ -26,7 +26,7 @@ class UserShow extends React.Component{
 
     let stacks = [];
     let row = [];
-    for(let i = 0; i < posts.length; i++){
+    for (let i = 0; i < posts.length; i++) {
       // debugger
       let likes = posts[i].likeIds.length;
       let comments = posts[i].commentIds.length;
@@ -40,7 +40,7 @@ class UserShow extends React.Component{
         </div>
       </li>)
 
-      if(row.length === 3){
+      if (row.length === 3) {
         stacks.push(<ul key={i} className="posts-stack">
           {row}
         </ul>)
@@ -53,10 +53,10 @@ class UserShow extends React.Component{
         {row}
       </ul>)
     }
-  
+
     return <section className="user-profile-container">
       <div className="profile-details">
-        <img src="" alt=""/>
+        <img src="" alt="" />
         <div className="detail-top">
           <h2>{user.username}</h2>
           <button>Edit Profile</button>
@@ -73,7 +73,7 @@ class UserShow extends React.Component{
           <strong>{user.fullName}</strong>
         </div>
       </div>
-      <hr/>
+      <hr />
 
       {/* outter container, user flex: column */}
       <div className="user-posts-container">

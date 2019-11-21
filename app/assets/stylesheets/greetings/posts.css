@@ -58,8 +58,9 @@
   margin: 3px;
 }
 
+/* may have to change h3 to anchor for link */
 .post-author img,
-.post-author h3,
+.post-author a, 
 .post-author ul{
   display: inline-block;
   vertical-align: middle;
@@ -86,7 +87,7 @@
   margin: 5px;
 }
 
-.single-post h3{
+.single-post .post-author a{
   font-weight: 400;
   font-size: 15px;
   margin-left: 10px;

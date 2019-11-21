@@ -5,6 +5,7 @@ import { AuthRoute } from '../../util/route_util';
 import ImageIndexContainer from '../images/image_index_container';
 import LoggedInContainer from './logged_in_container';
 import UserShowContainer from '../profiles/user_show_container';
+import OtherUserShowContainer from '../profiles/other_user_show_container';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -17,9 +18,8 @@ export default class Greeting extends React.Component {
       <div>
         <div className="top-bar"><LoggedInContainer /></div>
         <Switch>
-          <Route path="/profile">
-            <UserShowContainer/>
-          </Route>
+          <Route exact path={`/users/${this.props.currentUser.id}/profile`} component={UserShowContainer} />
+          <Route path="/users/:id/profile" component={OtherUserShowContainer}/>
           <Route path="/">
             <div className="feed"><ImageIndexContainer /></div>
           </Route >
