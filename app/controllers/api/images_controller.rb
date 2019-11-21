@@ -1,6 +1,11 @@
 class Api::ImagesController < ApplicationController
   def index
-    @images = Image.includes(:comments, :likes).all
+    if params[:userId]
+      @images = Image.includes(:comments, :likes)
+        .where(author_id: params[:userId])
+    else
+      @images = Image.includes(:comments, :likes).all
+    end
     render :index
   end
 

@@ -33,8 +33,9 @@ const removeImage = imageId => {
   }
 }
 
-export const fetchImages = () => dispatch => {
-  return ImageAPI.fetchImages()
+export const fetchImages = (userId) => dispatch => {
+
+  return ImageAPI.fetchImages(userId)
     .then(payload => (dispatch(receiveAllImages(payload))), err => (
       dispatch(receiveImageErrors(err.responseJSON))
     ));

@@ -129,9 +129,11 @@
 
 .top-bar{
   display: block;
+  position: relative;
+  padding-bottom: 100px;
 }
 
 .feed{
-  padding-top: 98px;
+  padding-top: 0px;
   /* position: relative; */
 }

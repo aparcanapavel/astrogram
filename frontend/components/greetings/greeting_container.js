@@ -10,7 +10,8 @@ const mstp = ({ entities, session }) => {
 
 const mdtp = dispatch => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    
   }
 }
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ImageFormContainer from '../images/image_form_container';
 import LoginOptions from '../session/login_options';
 import FadeIn from 'react-fade-in';
+import GearOptions from '../profiles/gear_options';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -16,6 +17,9 @@ function Modal({ modal, closeModal }) {
       break;
     case 'loginOptions':
       component = <LoginOptions />;
+      break;
+    case 'gearOptions':
+      component = <GearOptions />;
       break;
     default:
       return null;

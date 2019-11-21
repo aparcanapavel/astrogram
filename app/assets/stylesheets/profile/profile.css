@@ -1,0 +1,89 @@
+.user-profile-container{
+  position: relative;
+  display: block;
+  /* -webkit-box-orient: horizontal; */
+  /* -webkit-box-direction: normal; */
+  /* flex-direction: row; */
+  width: 960px;
+  margin: 6px auto;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.user-profile-container hr { 
+  border-color: #72727214;
+}
+
+.profile-details {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  margin-bottom: 60px;
+}
+
+.profile-details img,
+.profile-details div{
+  position: relative;
+  display: block;
+}
+
+.profile-details img{
+  position: absolute;
+  background-color: blueviolet;
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  left: 15%;
+}
+
+.detail-top,
+.detail-middle,
+.detail-bottom{
+  display: block;
+  font-family: sans-serif;
+  padding-bottom: 15px;
+}
+
+.detail-top h2,
+.detail-top button,
+.detail-top i {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.detail-top h2{
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.detail-top button{
+  border: 1px solid rgb(220, 220, 220);
+  /* color: rgb(220, 220, 220); */
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin-left: 12px;
+}
+
+.detail-top i,
+.detail-top button{
+  cursor: pointer;
+}
+
+.detail-top i {
+  margin-left: 12px;
+}
+
+.detail-middle p {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.detail-middle p strong {
+  font-weight: 600;
+}
+
+.detail-bottom strong {
+  font-weight: 600;
+}
+

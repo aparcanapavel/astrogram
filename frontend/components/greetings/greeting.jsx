@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SignupFormContainer from '../session/signup_form_container';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../../util/route_util';
 import ImageIndexContainer from '../images/image_index_container';
 import LoggedInContainer from './logged_in_container';
+import UserShowContainer from '../profiles/user_show_container';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -16,8 +16,14 @@ export default class Greeting extends React.Component {
       //render or redirect to feed index. for now, it'll display the current username
       <div>
         <div className="top-bar"><LoggedInContainer /></div>
-       
-        <div className="feed"><ImageIndexContainer /></div>
+        <Switch>
+          <Route path="/profile">
+            <UserShowContainer/>
+          </Route>
+          <Route path="/">
+            <div className="feed"><ImageIndexContainer /></div>
+          </Route >
+        </Switch>
       </div>
     ) : (
       <section className="noUserWelcomeContainer">
