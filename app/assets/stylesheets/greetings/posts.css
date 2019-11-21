@@ -32,9 +32,14 @@
   position: relative;
   width: 100%;
   touch-action: manipulation;
+  z-index: 10;
 }
 
-#heartIcon {
+.post-img img{
+  z-index: 0;
+}
+
+.post-img i {
   position: absolute;
   color: white;
   display: none;

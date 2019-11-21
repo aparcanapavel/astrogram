@@ -9,7 +9,7 @@ export default class ImageIndexItem extends React.Component {
     }
     this.submitComment = this.submitComment.bind(this);
     this.handleLike = this.handleLike.bind(this);
-    this.likeIcon;
+    this.likeIcon = "";
     this.handleFollow = this.handleFollow.bind(this);
     this.is_following = this.props.imgAuthor.followerIds.includes(this.props.currentUser.id)
   }
@@ -32,18 +32,25 @@ export default class ImageIndexItem extends React.Component {
       if(likes[i].authorId === currentUser.id){
         this.props.deleteLike(likes[i].id);
         this.likeIcon = "far fa-heart";
-        document.getElementById("heartIcon").style.fontSize = '60px';
-        $('#heartIcon').fadeIn(800).animate({ 'font-size': '30px' }, 150).fadeOut(150);
+        
+        document.getElementById(`heartIcon-${imageId}`)
+          .style.fontSize = '60px';
+
+        $(`#heartIcon-${imageId}`)
+          .fadeIn(800)
+          .animate({ 'font-size': '30px' }, 150)
+          .fadeOut(150);
       }
     }
     if (likes.every(like => like.authorId !== currentUser.id)) {
       this.props.createLike({ image_id: imageId, author_id: currentUser.id });
       this.likeIcon = "fas fa-heart";
-      document.getElementById("heartIcon").style.fontSize = '40px';
-      $('#heartIcon').fadeIn(800).animate({ 'font-size': '60px' }, 150).fadeOut(150);
-      // $('#heartIcon').fadeIn(800, () => {
-      //   $('#heartIcon').animate({ 'font-size': '60px' }, 150).fadeOut(150)
-      // });
+      document.getElementById(`heartIcon-${imageId}`).style.fontSize = '40px';
+      $(`#heartIcon-${imageId}`)
+        .fadeIn(800)
+        .animate({ 'font-size': '60px' }, 150)
+        .fadeOut(150);
+
     }
     
   }
@@ -125,9 +132,9 @@ export default class ImageIndexItem extends React.Component {
         {deleteButton}
       </div>
 
-      <div className="post-img">
-        <i className={this.likeIcon} id="heartIcon"></i>
-        <img src={img.imageUrl} alt="" onDoubleClick={() => this.handleLike(img.id)} />
+      <div className="post-img" onDoubleClick={() => this.handleLike(img.id)}>
+        <i className={this.likeIcon} id={`heartIcon-${img.id}`}></i>
+        <img src={img.imageUrl} alt=""  />
       </div>
 
       <div className="post-icons">
