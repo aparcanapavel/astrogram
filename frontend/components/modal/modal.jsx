@@ -21,6 +21,9 @@ function Modal({ modal, closeModal }) {
     case 'gearOptions':
       component = <GearOptions />;
       break;
+    case 'editProfilePicture':
+      console.log("opening the profile picture edit");
+      
     default:
       return null;
   }

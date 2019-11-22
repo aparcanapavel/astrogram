@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_USERS } from "../actions/user_actions";
+import { RECEIVE_ALL_USERS, RECEIVE_USER } from "../actions/user_actions";
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions'
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW, RECEIVE_FOLLOW_ERRORS, RECEIVE_ALL_FOLLOWERS } from '../actions/follow_actions';
 
@@ -11,6 +11,10 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       return Object.assign({}, state, action.users);
 
+    case RECEIVE_USER:
+      // debugger
+      return Object.assign({}, state, { [action.user.id]: action.user });
+
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, { [action.user.id]: action.user });
       
@@ -21,13 +25,17 @@ export default (state = {}, action) => {
       return copyState;
 
     case REMOVE_FOLLOW:
-      const followeeIds = copyState[action.follow.followeeId].followerIds;
+      let followeeIds = copyState[action.follow.followeeId].followerIds;
       const followeeIdx = followeeIds.indexOf(action.follow.followerId);
-      const followerIds = copyState[action.follow.followerId].followeeIds;
+      let followerIds = copyState[action.follow.followerId].followeeIds;
       const followerIdx = followerIds.indexOf(action.follow.followeeId);
       delete followeeIds[followeeIdx];
       delete followerIds[followerIdx];
 
+      followeeIds.filter(function(e){return e}); 
+      followerIds.filter(function(e){return e}); 
+      
+      // debugger;
       return copyState;
 
     case LOGOUT_CURRENT_USER:

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class UserShow extends React.Component{
   constructor(props){
@@ -14,12 +15,12 @@ class UserShow extends React.Component{
   }
 
   componentDidMount() {
-    this.props.fetchImages(user.id);
+    this.props.fetchImages(this.props.user.id);
   }
 
   render() {    
     const { user, posts } = this.props;
-    debugger
+    // debugger
     const followers = user.followeeIds.length;
     const following = user.followerIds.length;
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
@@ -59,7 +60,7 @@ class UserShow extends React.Component{
         <img src="" alt=""/>
         <div className="detail-top">
           <h2>{user.username}</h2>
-          <button>Edit Profile</button>
+          <Link to="/account/edit">Edit Profile</Link>
           <i className="fas fa-cog" onClick={() => this.props.openModal('gearOptions')}></i>
         </div>
 

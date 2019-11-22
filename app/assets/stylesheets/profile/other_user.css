@@ -1,0 +1,9 @@
+.detail-top button.profile-follow-button {
+  background-color: rgba(0, 140, 247, 0.954);
+  color: white;
+  padding: 5px 20px; 
+}
+
+.detail-top button.profile-following{
+  padding: 5px 11px; 
+}

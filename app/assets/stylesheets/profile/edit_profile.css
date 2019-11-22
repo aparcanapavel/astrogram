@@ -1,0 +1,91 @@
+.edit-profile-container{
+  position: relative;
+  display: block;
+  width: 860px;
+  margin: 6px auto;
+  -webkit-box-align: center;
+  align-items: center;
+  /* padding-top: 30px; */
+  background-color: white;
+  border: 1px solid rgb(235, 235, 235);
+  font-family: sans-serif;
+}
+
+.edit-profile-container nav,
+.edit-profile-container .edit-profile-details{
+  display: inline-block;
+  /* flex-direction: row; */
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.edit-profile-container nav ul li{
+  font-size: 18px;
+  border-left: 2px solid black;
+  padding: 10px;
+  padding-right: 30px;
+}
+
+.edit-profile-container nav{
+  position: relative;
+  height: 100%;
+  width: 160px;
+  /* border-right: 1px solid rgb(235, 235, 235); */
+}
+
+.edit-profile-container .edit-profile-details {
+  border-left: 1px solid rgb(235, 235, 235);
+  padding: 50px;
+  width: 700px;
+}
+
+.edit-profile-form {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.edit-profile-form label{
+  width: 100px;
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.edit-profile-form input[type="text"]{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.edit-profile-form input[type="submit"]{
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.edit-profile-form #label-file {
+  color: rgba(0, 140, 247, 0.954);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.edit-profile-form h4{
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.edit-profile-form img{
+  width: 100px;
+  height: 100px;
+  background-color: blueviolet;
+  border-radius: 100px;
+  margin: 0 auto;
+}

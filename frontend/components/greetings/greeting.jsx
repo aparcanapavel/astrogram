@@ -6,6 +6,7 @@ import ImageIndexContainer from '../images/image_index_container';
 import LoggedInContainer from './logged_in_container';
 import UserShowContainer from '../profiles/user_show_container';
 import OtherUserShowContainer from '../profiles/other_user_show_container';
+import EditUserContainer from '../profiles/edit_profile';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -19,7 +20,11 @@ export default class Greeting extends React.Component {
         <div className="top-bar"><LoggedInContainer /></div>
         <Switch>
           <Route exact path={`/users/${this.props.currentUser.id}/profile`} component={UserShowContainer} />
+
           <Route path="/users/:id/profile" component={OtherUserShowContainer}/>
+
+          <Route path="/account/edit" component={EditUserContainer} />
+
           <Route path="/">
             <div className="feed"><ImageIndexContainer /></div>
           </Route >

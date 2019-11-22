@@ -127,7 +127,7 @@ export default class ImageIndexItem extends React.Component {
 
     return <li key={img.id} className="single-post">
       <div className="post-author">
-        <img /><Link to={`/users/${imgAuthor.id}/profile`} userId={imgAuthor.id}>{imgAuthor.username}</Link>
+        <img /><Link to={`/users/${imgAuthor.id}/profile`}>{imgAuthor.username}</Link>
         <ul>{followButton}</ul>
         {deleteButton}
       </div>

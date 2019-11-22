@@ -17,7 +17,7 @@
 .profile-details {
   display: block;
   margin: 0 auto;
-  width: 300px;
+  width: 350px;
   margin-bottom: 60px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .detail-top h2,
-.detail-top button,
+.detail-top a,
 .detail-top i {
   display: inline-block;
   vertical-align: middle;
@@ -56,7 +56,7 @@
   font-weight: 100;
 }
 
-.detail-top button{
+.detail-top a{
   border: 1px solid rgb(220, 220, 220);
   /* color: rgb(220, 220, 220); */
   font-size: 14px;
@@ -66,7 +66,7 @@
 }
 
 .detail-top i,
-.detail-top button{
+.detail-top a{
   cursor: pointer;
 }
 
@@ -116,6 +116,8 @@
   color: white;
   height: 100%;
   width: 100%;
+  max-width: 280px;
+  max-height: 280px;
   text-align: center;
   left: 0px;
   font-family: sans-serif;
@@ -134,7 +136,6 @@
 
 .profile-post-icons i{
   margin: 10px;
-  
 }
 
 .post-item:hover .profile-post-icons{
