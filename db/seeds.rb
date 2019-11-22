@@ -56,3 +56,14 @@ e.save
   Like.create({ author_id: 2, image_id: 5 })
   Like.create({ author_id: 3, image_id: 5 })
   Like.create({ author_id: 1, image_id: 5 })
+
+
+# FOLLOWS
+Follow.create({ followee_id: 5, follower_id: 1})
+Follow.create({ followee_id: 4, follower_id: 1})
+Follow.create({ followee_id: 3, follower_id: 1})
+Follow.create({ followee_id: 2, follower_id: 1})
+
+Follow.create({ followee_id: 1, follower_id: 3 })
+Follow.create({ followee_id: 1, follower_id: 4 })
+Follow.create({ followee_id: 1, follower_id: 5 })

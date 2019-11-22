@@ -22,21 +22,33 @@ export default class ImageIndex extends React.Component {
     }
 
     let sortedPosts = images.sort((a, b) => a.id < b.id ? 1 : a.id > b.id ? -1 : 0).map(img => {
+      if(currentUser.followeeIds.length === 0){
+        let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
 
-      let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
+        let imgAuthor = users[img.authorId];
 
-      let imgAuthor = users[img.authorId];
+        return <ImageIndexItemContainer 
+        deleteButton={deleteButton} 
+        imgAuthor={imgAuthor} 
+        img={img}
+        key={img.id}
+        users={users}
+        currentUser={currentUser}
+        />
+      } else if (currentUser.followeeIds.includes(img.authorId)) {
+        let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
 
-      let no_comments = img.commentIds.length === 0 ? true : false;
+        let imgAuthor = users[img.authorId];
 
-      return <ImageIndexItemContainer 
-      deleteButton={deleteButton} 
-      imgAuthor={imgAuthor} 
-      img={img}
-      key={img.id}
-      users={users}
-      currentUser={currentUser}
-      />
+        return <ImageIndexItemContainer
+          deleteButton={deleteButton}
+          imgAuthor={imgAuthor}
+          img={img}
+          key={img.id}
+          users={users}
+          currentUser={currentUser}
+        />
+      }
     });
     
     return <ul className="posts-feed">{sortedPosts}</ul>
