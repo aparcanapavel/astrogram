@@ -20,7 +20,6 @@ class UserShow extends React.Component{
 
   render() {    
     const { user, posts } = this.props;
-    // debugger
     const followers = user.followeeIds.length;
     const following = user.followerIds.length;
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
@@ -28,7 +27,7 @@ class UserShow extends React.Component{
     let stacks = [];
     let row = [];
     for(let i = 0; i < posts.length; i++){
-      // debugger
+
       let likes = posts[i].likeIds.length;
       let comments = posts[i].commentIds.length;
       row.push(<li key={posts[i].id} className="post-item">

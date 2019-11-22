@@ -15,7 +15,7 @@ class OtherUserShow extends React.Component {
 
   componentDidMount() {
     const { userId } = this.props;
-    // debugger
+
     this.props.fetchUser(userId).then(() => this.props.fetchImages(this.props.user.id)).then(() => {
       this.setState({ 
         loading: false, 
@@ -27,7 +27,7 @@ class OtherUserShow extends React.Component {
   }
 
   handleFollow(userId) {
-    // debugger
+
     let followData;
     if (this.state.followed) {
       console.log("unfollowing...")

@@ -6,7 +6,7 @@ import { fetchUser } from '../../actions/user_actions';
 import { unfollowUser, followUser } from '../../actions/follow_actions'
 
 const mstp = (state, ownProps) => {
-  // debugger
+  
   return {
     user: state.entities.users[ownProps.match.params.id],
     currentUserId: state.session.id,

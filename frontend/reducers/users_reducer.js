@@ -12,7 +12,6 @@ export default (state = {}, action) => {
       return Object.assign({}, state, action.users);
 
     case RECEIVE_USER:
-      // debugger
       return Object.assign({}, state, { [action.user.id]: action.user });
 
     case RECEIVE_CURRENT_USER:
@@ -35,7 +34,6 @@ export default (state = {}, action) => {
       followeeIds.filter(function(e){return e}); 
       followerIds.filter(function(e){return e}); 
       
-      // debugger;
       return copyState;
 
     case LOGOUT_CURRENT_USER:
