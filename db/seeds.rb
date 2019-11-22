@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -17,7 +18,8 @@ User.create(username: "kepler", password: "password", full_name: "Johannes Keple
 # IMAGE POSTS
 # moon by demoUser
 p = Image.new({author_id: 1, caption: "Enjoy this picture of the moon!"})
-p.photo.attach(io: File.open("/Users/pavs/Desktop/Pics&Vids/My_pictures/Raw_abstract/processed/Moon_6290.jpg"), filename: "Moon_6290.jpg")
+file1 = open('https://astrogram-seeds.s3.amazonaws.com/Moon_6290.jpg')
+p.photo.attach(io: file1, filename: "Moon_6290.jpg")
 p.save
   # likes
   Like.create({ author_id: 2, image_id: 1 })
@@ -27,24 +29,28 @@ p.save
 
 # huge telescope
 m = Image.new({author_id: 2, caption: "Great night sky!"})
-m.photo.attach(io: File.open("/Users/pavs/Desktop/AppAcademy/week15:16/astrogram_images/looking_out.jpg"), filename: "looking_out.jpg") 
+file2 = open('https://astrogram-seeds.s3.amazonaws.com/looking_out.jpg')
+m.photo.attach(io: file2, filename: "looking_out.jpg") 
 m.save
 
 # earth
 g = Image.new({author_id: 3, caption: "Ancient Greeks knew that the Earth was not flat"})
-g.photo.attach(io: File.open("/Users/pavs/Desktop/AppAcademy/week15:16/astrogram_images/earth_from_moon.jpg"), filename: "earth_from_moon.jpg")
+file3 = open('https://astrogram-seeds.s3.amazonaws.com/earth_from_moon.jpg')
+g.photo.attach(io: file3, filename: "earth_from_moon.jpg")
 g.save
   #comments
   Comment.create({ author_id: 2, image_id: 3, body: "I thought the earth was a flat??" })
 
 # night sky
 n = Image.new({author_id: 5, caption: "thinking..."})
-n.photo.attach(io: File.open("/Users/pavs/Desktop/AppAcademy/week15:16/astrogram_images/night_sky.jpg"), filename: "night_sky.jpg")
+file4 = open('https://astrogram-seeds.s3.amazonaws.com/night_sky.jpg')
+n.photo.attach(io: file4, filename: "night_sky.jpg")
 n.save
 
 # space looking
 e = Image.new({author_id: 4, caption: "Look out"})
-e.photo.attach(io: File.open("/Users/pavs/Desktop/AppAcademy/week15:16/astrogram_images/space_telescope.jpg"), filename: "space_telescope.jpg")
+file5 = open('https://astrogram-seeds.s3.amazonaws.com/space_telescope.jpg')
+e.photo.attach(io: file5, filename: "space_telescope.jpg")
 e.save
   # likes
   Like.create({ author_id: 2, image_id: 5 })
