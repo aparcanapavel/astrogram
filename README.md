@@ -2,14 +2,11 @@
 
 [Live Link](https://astrogram-prod.herokuapp.com/)
 
-This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the basic features of instagram,like creating an account,loggin in, logging out, staying logged in after refreshing the page, and having a profile show page for users(current user pofile will display different settings). Further, *Astrogram* also has a feature outside of what is included in Instagram, uploading images from the browser instead of the app. Lastly, I also included a feature for demo users, where by holding alt and clicking on "login as demo user" brings up options to log in as other demo users.
+This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the basic features of instagram,like creating an account,loggin in, logging out, staying logged in after refreshing the page, and having a profile show page for users(current user pofile will display different settings). Further, *Astrogram* also has a feature outside of what is included in Instagram, uploading images from the browser instead of the app.
 
 
 Bellow is the welcome screen for a new user
 ![Greetings](https://github.com/aparcanapavel/astrogram/blob/master/z-astrogram-welcome-signup.png?raw=true)
-
-As stated above, I have added a feature that allows new visitors of the page to login as different users for demo purposes **only**.
-![login options](https://github.com/aparcanapavel/astrogram/blob/master/z-login-options-modal.png?raw=true)
 
 In order to handle the likes annimation, I used basic jQuery to add and remove classess to the heart   element. In the end, it allowed me to create a simple annimation that expands and fills the heart for   liking it, and it shrinks and shows a different heart uppon unliking the picture.
 ![likes code](https://github.com/aparcanapavel/astrogram/blob/master/z-astrogram-likes-code.png?raw=true)
