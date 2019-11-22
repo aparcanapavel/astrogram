@@ -5,8 +5,8 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.includes(:followers, :followees).all
-    render :index
+      @users = User.includes(:followers, :followees).all
+      render :index
   end
 
   def create

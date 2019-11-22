@@ -57,3 +57,19 @@
 .nav-list li {
   cursor: pointer;
 }
+
+#search-results {
+  position: absolute;
+  background-color: white;
+  padding: 10px 20px;
+  font-family: sans-serif;
+  display: none;
+}
+
+#search-results.show-results{
+  display: block;
+}
+
+#search-results li{
+  padding: 10px 0;
+}

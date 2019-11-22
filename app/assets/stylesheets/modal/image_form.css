@@ -23,6 +23,7 @@
   border: 2px solid black;
   padding: 25px;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .post-form-modal h3 {

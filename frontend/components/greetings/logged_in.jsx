@@ -15,14 +15,19 @@ class LoggedIn extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
-    // .then(() => this.props.fetchImages());
   }
 
   render () {
+    
     return <nav className="nav-bar">
       <ul className="nav-list">
         <li onClick={this.toHome}><i className="fab fa-instagram"></i><h1 className='astrogram-nav'>Astrogram</h1></li>
-        <li><input type="text" placeholder="search users"/></li>
+        <li>
+          <input 
+          type="text" 
+          placeholder="search users" 
+          disabled/>
+        </li>
         <li onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
         <li><i className="far fa-heart"></i></li>
         <li><Link to={`/users/${this.props.currentUser.id}/profile`} className="far fa-user"></Link></li>

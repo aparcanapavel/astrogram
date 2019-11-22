@@ -18,8 +18,8 @@ const receiveUser = user => {
   }
 }
 
-export const fetchUsers = () => dispatch => {
-  return UserAPI.fetchUsers()
+export const fetchUsers = (username) => dispatch => {
+  return UserAPI.fetchUsers(username)
     .then(users => dispatch(receiveAllUsers(users)));
 }
 
