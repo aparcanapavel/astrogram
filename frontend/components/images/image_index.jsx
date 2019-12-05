@@ -18,7 +18,7 @@ export default class ImageIndex extends React.Component {
     const { images, currentUser, users } = this.props;
     
     if(!images){
-      return <h1>loading</h1>
+      return <i id="loading-logo" className="fab fa-instagram"></i>
     }
 
     let sortedPosts = images.sort((a, b) => a.id < b.id ? 1 : a.id > b.id ? -1 : 0).map(img => {

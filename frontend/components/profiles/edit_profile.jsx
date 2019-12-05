@@ -28,8 +28,9 @@ class EditProfile extends React.Component {
     formData.append('user[photo]', this.state.photoFile);
     formData.append('user[full_name]', this.state.name);
     formData.append('user[username]', this.state.username);
-
-    this.props.updateUser(formData);
+    formData.append('user[id]', this.props.currentUser.id);
+    
+    this.props.updateUser(this.props.currentUser, formData);
 
     if (this.state.photoURL) {
       this.props.history.push(`/users/${currentUser.id}/profile`);
@@ -101,7 +102,7 @@ class EditProfile extends React.Component {
 
             <br/>
 
-            <input type="submit" value="Submit" disabled/>
+            <input type="submit" value="Submit"/>
           </form>
        </div>
       </div>

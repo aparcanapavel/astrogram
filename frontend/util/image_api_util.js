@@ -8,6 +8,7 @@ export const fetchImages = (userId) => {
 }
 
 export const createImage = image => {
+
   return $.ajax({
     method: 'POST',
     url: '/api/images',

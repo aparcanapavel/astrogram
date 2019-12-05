@@ -19,6 +19,9 @@ class UserShow extends React.Component{
   }
 
   render() {    
+    // if(!user){
+    //   return <i id="loading-logo" className="fab fa-instagram"></i>
+    // }
     const { user, posts } = this.props;
     const followers = user.followeeIds.length;
     const following = user.followerIds.length;

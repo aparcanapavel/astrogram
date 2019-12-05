@@ -17,6 +17,7 @@ class Api::ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     @image.author_id = current_user.id
+
     if @image.save
       render :show
     else
