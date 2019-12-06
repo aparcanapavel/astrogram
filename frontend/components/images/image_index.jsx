@@ -18,7 +18,7 @@ export default class ImageIndex extends React.Component {
     const { images, currentUser, users } = this.props;
     
     if(!images){
-      return <h1>loading</h1>
+      return <i id="loading-logo" className="fab fa-instagram"></i>
     }
 
     let sortedPosts = images.sort((a, b) => a.id < b.id ? 1 : a.id > b.id ? -1 : 0).map(img => {
@@ -35,7 +35,7 @@ export default class ImageIndex extends React.Component {
         users={users}
         currentUser={currentUser}
         />
-      } else if (currentUser.followeeIds.includes(img.authorId)) {
+      } else if (currentUser.followeeIds.includes(img.authorId) || currentUser.id === img.authorId) {
         let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
 
         let imgAuthor = users[img.authorId];

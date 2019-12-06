@@ -25,7 +25,6 @@ class ImageForm extends React.Component {
     formData.append('image[photo]', this.state.photoFile);
 
     this.props.createImage(formData);
-
     if(this.state.photoURL){
       this.props.closeModal();
       this.props.history.push("/");

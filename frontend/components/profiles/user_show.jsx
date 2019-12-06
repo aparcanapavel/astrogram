@@ -19,6 +19,9 @@ class UserShow extends React.Component{
   }
 
   render() {    
+    // if(!user){
+    //   return <i id="loading-logo" className="fab fa-instagram"></i>
+    // }
     const { user, posts } = this.props;
     const followers = user.followeeIds.length;
     const following = user.followerIds.length;
@@ -53,10 +56,10 @@ class UserShow extends React.Component{
         {row}
       </ul>)
     }
-  
+    const src = user.imageUrl;
     return <section className="user-profile-container">
       <div className="profile-details">
-        <img src="" alt=""/>
+        <img src={src} alt=""/>
         <div className="detail-top">
           <h2>{user.username}</h2>
           <Link to="/account/edit">Edit Profile</Link>

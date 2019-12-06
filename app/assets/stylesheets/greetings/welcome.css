@@ -137,3 +137,36 @@
   padding-top: 0px;
   /* position: relative; */
 }
+
+#loading-logo{
+  display: block;
+  position: fixed;
+  z-index: 20;
+  color: black;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 40%;
+  font-size: 100px;
+}
+
+#loading-logo {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+        font-size: 100px;
+    }
+    50% { 
+        opacity: 1.0;
+        font-size: 110px;
+    }
+    100% { 
+        opacity: 0.5;
+        font-size: 100px;
+    }
+}

@@ -11,6 +11,8 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    file = File.open('https://astrogram-seeds.s3.amazonaws.com/night-sky-with-moon-and-stars.jpg');
+    @user.profile_picture.attach(io: file, filename: 'night-sky-with-moon-and-stars.jpg')
 
     if @user.save
       login(@user)
@@ -31,17 +33,19 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
 
     if @user.update(user_params)
       render :show
     else
-      render json: ["Error. please try again later"]
+      render json: ['You must update your image'], status: 401
     end
+rescue ActiveSupport::MessageVerifier::InvalidSignature
+    render json: ['You must update your image'], status: 400
   end
 
   private
   def user_params
-    params.require(:user).permit(:username, :full_name, :password, :photo)
+    params.require(:user).permit(:username, :full_name, :password, :profile_picture)
   end
 end

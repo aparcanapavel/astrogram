@@ -124,10 +124,11 @@ export default class ImageIndexItem extends React.Component {
       followButton = <li id="follow-button" onClick={() => this.handleFollow(imgAuthor.id)}>Follow</li>
 
     }
-
+    const src = imgAuthor.imageUrl;
+    
     return <li key={img.id} className="single-post">
       <div className="post-author">
-        <img /><Link to={`/users/${imgAuthor.id}/profile`}>{imgAuthor.username}</Link>
+        <img src={src} /><Link to={`/users/${imgAuthor.id}/profile`}>{imgAuthor.username}</Link>
         <ul>{followButton}</ul>
         {deleteButton}
       </div>
