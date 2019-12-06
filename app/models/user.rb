@@ -37,7 +37,8 @@ class User < ApplicationRecord
     through: :out_follows, 
     source: :followee
   
-  has_one_attached :photo
+  has_one_attached :profile_picture,
+  dependent: :destroy
 
   # SSPIRE
   def self.find_by_credentials(username, password)

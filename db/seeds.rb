@@ -8,12 +8,23 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # USERS
-User.create(username: 'demoUser', password: 'password', full_name: 'Demo User')
-User.create(username: "masterAdmin", password: "password", full_name: "administrator")
-User.create(username: "galileo215", password: "password", full_name: "Galileo Galilei")
-User.create(username: "einstein", password: "password", full_name: "Albert Einstein")
-User.create(username: "newtonLaws", password: "password", full_name: "Isaac Newton")
-User.create(username: "kepler", password: "password", full_name: "Johannes Kepler")
+demo = User.create(username: 'demoUser', password: 'password', full_name: 'Demo User')
+  demo.profile_picture.attach(io: open("https://astrogram-seeds.s3.amazonaws.com/night-sky-with-moon-and-stars.jpg"), filename: "Night-sky-with-moon-and-stars.jpg")
+
+master = User.create(username: "masterAdmin", password: "password", full_name: "administrator")
+  master.profile_picture.attach(io: open("https://astrogram-seeds.s3.amazonaws.com/night-sky-with-moon-and-stars.jpg"), filename: "night-sky-with-moon-and-stars.jpg")
+
+galileo = User.create(username: "galileo215", password: "password", full_name: "Galileo Galilei")
+  galileo.profile_picture.attach(io: open("https://astrogram-seeds.s3.amazonaws.com/gallieo.jpg"), filename: "gallieo.jpg")
+
+einstein = User.create(username: "einstein", password: "password", full_name: "Albert Einstein")
+  einstein.profile_picture.attach(io: open("https://astrogram-seeds.s3.amazonaws.com/einstein.jpg"), filename: "einstein.jpg")
+
+newton = User.create(username: "newtonLaws", password: "password", full_name: "Isaac Newton")
+  newton.profile_picture.attach(io: open("https://astrogram-seeds.s3.amazonaws.com/newton.jpg"), filename: "newton.jpg")
+
+kepler = User.create(username: "kepler", password: "password", full_name: "Johannes Kepler")
+  kepler.profile_picture.attach(io: open("https://astrogram-seeds.s3.amazonaws.com/kepler.jpg"), filename: "kepler.jpg")
 
 # IMAGE POSTS
 # moon by demoUser

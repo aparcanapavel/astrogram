@@ -35,7 +35,7 @@ export default class ImageIndex extends React.Component {
         users={users}
         currentUser={currentUser}
         />
-      } else if (currentUser.followeeIds.includes(img.authorId)) {
+      } else if (currentUser.followeeIds.includes(img.authorId) || currentUser.id === img.authorId) {
         let deleteButton = img.authorId === currentUser.id ? <i onClick={() => this.removeImage(img.id)} className="fas fa-ellipsis-v"></i> : null;
 
         let imgAuthor = users[img.authorId];
