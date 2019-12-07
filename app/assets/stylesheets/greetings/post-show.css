@@ -28,6 +28,7 @@
   width: 100%;
   height: 100%;
   top: 47%;
+  left: -20%;
 }
 
 .post-show-img img{
@@ -44,6 +45,7 @@
 
 .image-show-details .post-author{
   vertical-align: top;
+  border-bottom: 1px solid rgb(235, 235, 235);
 }
 
 .image-show-details .bottom-details{
@@ -55,4 +57,26 @@
 
 .image-show-details .bottom-details input {
   padding: 0px;
+}
+
+.image-show-details .post-caption {
+  display: block;
+}
+
+.image-show-details .post-caption p{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-show-details .post-comments {
+  border-bottom: 0px;
+  overflow: auto;
+}
+
+.image-show-details .comment-item-preview {
+  display: block;
+  padding: 1px 0px;
+}
+.image-show-details .comment-item-preview p{
+  vertical-align: middle;
 }

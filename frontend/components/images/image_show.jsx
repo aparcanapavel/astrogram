@@ -15,9 +15,14 @@ export default class ImageShow extends React.Component {
   }
 
   componentDidMount(){
+    const { imageId } = this.props;
     this.props.fetchUsers().then(() => {
-      this.props.fetchImage(this.props.imageId).then(() => {
-        this.setState({ loading: false });
+      this.props.fetchImage(imageId).then(() => {
+        this.props.fetchComments(imageId).then(() => {
+          this.props.fetchLikes(imageId).then(() => {
+            this.setState({ loading: false });
+          })
+        })
       })
     })
   }
@@ -82,7 +87,7 @@ export default class ImageShow extends React.Component {
       return <i id="loading-logo" className="fab fa-instagram"></i>
     }
     const { image, imageAuthor, comments, users, currentUser, likes } = this.props;
-
+    
 
     let comment_list = comments.map(comment => {
       let commentAuthor = users[comment.authorId].username;
@@ -153,7 +158,6 @@ export default class ImageShow extends React.Component {
         <div className="post-caption">
           <p>{imageAuthor.username}</p>
           <p>{image.caption}</p>
-          {numComments}
         </div>
 
         <ul className="post-comments">

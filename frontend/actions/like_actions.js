@@ -35,7 +35,9 @@ const receiveLikeErrors = errors => {
 
 export const fetchLikes = imageId => dispatch => {
   return LikeAPI.fetchLikes(imageId)
-    .then(likes => (dispatch(receiveAllLikes(likes))), err => (
+    .then(likes => {
+      dispatch(receiveAllLikes(likes))
+    }, err => (
       dispatch(receiveLikeErrors(err.responseJSON))
     ));
 }

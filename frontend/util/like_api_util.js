@@ -1,7 +1,8 @@
 export const fetchLikes = imageId => {
+  
   return $.ajax({
     method: 'GET',
-    url: `/api/image/${imageId}/likes`
+    url: `/api/images/${imageId}/likes`
   })
 }
 
