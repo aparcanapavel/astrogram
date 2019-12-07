@@ -5,6 +5,7 @@ import ImageFormContainer from '../images/image_form_container';
 import LoginOptions from '../session/login_options';
 import FadeIn from 'react-fade-in';
 import GearOptions from '../profiles/gear_options';
+import ImageShowContainer from '../images/images_show_container';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -21,9 +22,8 @@ function Modal({ modal, closeModal }) {
     case 'gearOptions':
       component = <GearOptions />;
       break;
-    case 'editProfilePicture':
-      console.log("opening the profile picture edit");
-      
+    // case 'imageShow':
+    //   component = <ImageShowContainer />;    
     default:
       return null;
   }

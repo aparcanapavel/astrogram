@@ -33,6 +33,7 @@
   width: 100%;
   touch-action: manipulation;
   z-index: 10;
+  overflow: hidden;
 }
 
 .post-img img{
@@ -48,6 +49,11 @@
   width: 100%;
   height: 100%;
   top: 47%;
+}
+
+.post-author{
+  position: relative;
+  padding: 7px;
 }
 
 .post-author img {

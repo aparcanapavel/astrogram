@@ -10,7 +10,7 @@ class Api::ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find_by(params[:id])
+    @image = Image.find(params[:id])
     render :show
   end
 
