@@ -111,6 +111,11 @@
   z-index: 1;
 }
 
+.user-posts-container .posts-stack:last-child .post-item:nth-child(2) {
+  margin: 15px 0px;
+  margin-left: -12px;
+}
+
 .profile-post-icons{
   display: none;
   position: absolute;

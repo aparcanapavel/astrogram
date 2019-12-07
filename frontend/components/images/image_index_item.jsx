@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
-export default class ImageIndexItem extends React.Component {
+class ImageIndexItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -11,7 +12,12 @@ export default class ImageIndexItem extends React.Component {
     this.handleLike = this.handleLike.bind(this);
     this.likeIcon = "";
     this.handleFollow = this.handleFollow.bind(this);
-    this.is_following = this.props.imgAuthor.followerIds.includes(this.props.currentUser.id)
+    this.is_following = this.props.imgAuthor.followerIds.includes(this.props.currentUser.id);
+    this.toImage = this.toImage.bind(this);
+  }
+
+  toImage(imageId){
+    this.props.history.push(`/feed/${imageId}`);
   }
 
   submitComment(e) {
@@ -106,11 +112,11 @@ export default class ImageIndexItem extends React.Component {
     }
 
 
-    const numComments = img.commentIds.length > 4 ? <p className="num-comments">View all {comments.length} comments</p> : null
+    const numComments = img.commentIds.length > 4 ? <p className="num-comments" onClick={() => this.toImage(img.id)}>View all {comments.length} comments</p> : null
 
-    // if(comments.length > 1){
-    //   comment_list = comment_list.slice(0,1);
-    // }
+    if(comments.length > 4){
+      comment_list = comment_list.reverse().slice(0,4).reverse();
+    }
     let followButton;
     let imageOpt;
     if(imgAuthor.followerIds.includes(currentUser.id)){
@@ -144,7 +150,7 @@ export default class ImageIndexItem extends React.Component {
 
       <div className="post-icons">
         <i className={this.likeIcon} onClick={() => this.handleLike(img.id)}></i>
-        <i className="far fa-comment"></i>
+        <i className="far fa-comment" onClick={() => this.toImage(img.id)}></i>
       </div>
 
       {postLikes}
@@ -173,3 +179,5 @@ export default class ImageIndexItem extends React.Component {
     </li>
   }
 }
+
+export default withRouter(ImageIndexItem);

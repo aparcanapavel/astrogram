@@ -8,7 +8,7 @@ export default (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_LIKES:
-      return Object.assign({}, state, action.likes);
+      return Object.assign({}, action.likes);
 
     case RECEIVE_LIKE:
       return Object.assign({}, state, {[action.like.id]: action.like});

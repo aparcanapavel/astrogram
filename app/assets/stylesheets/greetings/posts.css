@@ -192,6 +192,7 @@
   display: block;
   color: rgb(173, 173, 173);
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .post-caption{

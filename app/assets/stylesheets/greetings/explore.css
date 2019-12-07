@@ -1,0 +1,45 @@
+.explore-container {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+
+.explore-container h3 {
+  margin-left: 15px;
+  font-family: sans-serif;
+  color:gray;
+  font-size: 14px;
+}
+
+.stacks-container{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.stacks-container .posts-stack{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.stacks-container .posts-stack{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.stacks-container .posts-stack .post-item{
+  display: flex;
+  width: 33%;
+  overflow: hidden;
+  margin: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.stacks-container .posts-stack:last-child .post-item:nth-child(2) {
+  margin: 15px 0px;
+  margin-left: -12px;
+}

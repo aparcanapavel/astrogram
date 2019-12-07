@@ -7,7 +7,7 @@
   background-color: white;
   border-radius: 3px;
   font-family: sans-serif;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 
  .post-show-img {
@@ -66,6 +66,7 @@
   bottom: 0px;
   width: 100%;
   border-top: 1px solid rgb(235, 235, 235);
+  background-color: white;
 }
 
 .image-show-details .bottom-details input {
@@ -84,6 +85,8 @@
 .image-show-details .post-comments {
   border-bottom: 0px;
   overflow: auto;
+  max-height: 550px;
+  z-index: 0;
 }
 
 .image-show-details .comment-item-preview {

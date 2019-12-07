@@ -7,7 +7,7 @@ export default (state = {}, action) => {
   
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
-      return Object.assign({}, state, action.comments);
+      return Object.assign({}, action.comments);
 
     case RECEIVE_ALL_IMAGES:
       return Object.assign({}, state, action.payload.comments);

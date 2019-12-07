@@ -29,7 +29,7 @@ class LoggedIn extends React.Component {
           disabled/>
         </li>
         <li onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
-        <li><i className="far fa-heart"></i></li>
+        <li><Link to="/explore" className="far fa-compass"></Link></li>
         <li><Link to={`/users/${this.props.currentUser.id}/profile`} className="far fa-user"></Link></li>
       </ul>
       <Modal />

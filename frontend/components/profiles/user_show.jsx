@@ -60,11 +60,15 @@ class UserShow extends React.Component{
           {row}
         </ul>)
         row = [];
-      }
+      } 
     }
 
     if (stacks.length === 0) {
-      stacks.push(<ul key={1} className="posts-stack">
+      stacks.push(<ul key={row[row.length -1].id} className="posts-stack">
+        {row}
+      </ul>)
+    } else if (row.length > 0) {
+      stacks.push(<ul key={row[row.length - 1].id} className="posts-stack">
         {row}
       </ul>)
     }
