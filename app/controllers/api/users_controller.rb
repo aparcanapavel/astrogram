@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::UsersController < ApplicationController
   def new
     user = User.new
@@ -11,7 +13,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    file = File.open('https://astrogram-seeds.s3.amazonaws.com/night-sky-with-moon-and-stars.jpg');
+    file = open('https://astrogram-seeds.s3.amazonaws.com/night-sky-with-moon-and-stars.jpg');
     @user.profile_picture.attach(io: file, filename: 'night-sky-with-moon-and-stars.jpg')
 
     if @user.save

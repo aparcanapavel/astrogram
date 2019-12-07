@@ -31,3 +31,10 @@ export const fetchAuthor = userId => {
     url: `/api/users/${userId}`
   })
 }
+
+export const fetchImage = imageId => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/images/${imageId}`
+  })
+}

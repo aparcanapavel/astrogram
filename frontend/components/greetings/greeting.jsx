@@ -7,6 +7,7 @@ import LoggedInContainer from './logged_in_container';
 import UserShowContainer from '../profiles/user_show_container';
 import OtherUserShowContainer from '../profiles/other_user_show_container';
 import EditUserContainer from '../profiles/edit_profile';
+import ImageShowContainer from '../images/images_show_container';
 
 export default class Greeting extends React.Component {
   constructor(props) {
@@ -25,6 +26,8 @@ export default class Greeting extends React.Component {
 
           <Route path="/account/edit" component={EditUserContainer} />
 
+          <Route path="/feed/:id" component={ImageShowContainer} />
+          
           <Route path="/">
             <div className="feed"><ImageIndexContainer /></div>
           </Route >

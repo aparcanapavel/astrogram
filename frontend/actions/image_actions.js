@@ -41,6 +41,11 @@ export const fetchImages = (userId) => dispatch => {
     ));
 }
 
+export const fetchImage = imageId => dispatch => {
+  return ImageAPI.fetchImage(imageId)
+  .then(image => dispatch(receiveImage(image)))
+}
+
 export const createImage = image => dispatch => {
   return ImageAPI.createImage(image)
     .then(image => (dispatch(receiveImage(image))), err => {
