@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
-export default class ImageShow extends React.Component {
+class ImageShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,7 +68,7 @@ export default class ImageShow extends React.Component {
     }
 
   }
-
+  // follow controll
   handleFollow(imgAuthorId) {
     let followData;
     if (this.props.imageAuthor.followerIds.includes(this.props.currentUser.id)) {
@@ -80,6 +81,16 @@ export default class ImageShow extends React.Component {
       }
       this.props.followUser(followData);
     }
+  }
+  // image options controll
+  removeImage(imageId) {
+    this.props.deleteImage(imageId);
+    this.props.history.push(`/users/${this.props.currentUser.id}/profile`);
+  }
+
+  toggleOptions() {
+    document.getElementById("image-show-options").classList.toggle("show");
+    console.log("toggling options...");
   }
 
   render() {
@@ -140,6 +151,17 @@ export default class ImageShow extends React.Component {
       followButton = <li id="follow-button" onClick={() => this.handleFollow(imageAuthor.id)}>Follow</li>
 
     }
+
+    let optionsButton = image.authorId === currentUser.id ? <i onClick={this.toggleOptions} className="fas fa-ellipsis-v"></i> : null;
+    
+    let imageOpt;
+    if (imageAuthor.id === currentUser.id) {
+      imageOpt = <ul id="image-show-options" className="image-options">
+        <li onClick={() => this.removeImage(this.props.imageId)}>Delete Post</li>
+        <li onClick={this.toggleOptions}>Cancel</li>
+      </ul>
+    }
+    
     const src = imageAuthor.imageUrl;
 
     return <section id="post-show-container">
@@ -152,7 +174,8 @@ export default class ImageShow extends React.Component {
         <div className="post-author">
           <img src={src} /><Link to={`/users/${imageAuthor.id}/profile`}>{imageAuthor.username}</Link>
           <ul>{followButton}</ul>
-          {/* {deleteButton} */}
+          {optionsButton}
+          {imageOpt}
         </div>
 
         <div className="post-caption">
@@ -188,3 +211,5 @@ export default class ImageShow extends React.Component {
     </section>
   }
 }
+
+export default withRouter(ImageShow);

@@ -70,9 +70,8 @@ export default class ImageIndexItem extends React.Component {
   }
 
   render() {
-    const { deleteButton, img, imgAuthor, comments, users, currentUser, likes } = this.props;
-    
-  
+    const { optionsButton, img, imgAuthor, comments, users, currentUser, likes } = this.props;
+     
     let comment_list = comments.map(comment => {
       let commentAuthor = users[comment.authorId].username;
 
@@ -113,13 +112,17 @@ export default class ImageIndexItem extends React.Component {
     //   comment_list = comment_list.slice(0,1);
     // }
     let followButton;
+    let imageOpt;
     if(imgAuthor.followerIds.includes(currentUser.id)){
 
       followButton = <li className="follow-button" onClick={() => this.handleFollow(imgAuthor.id)}>Following</li>;
 
     } else if (imgAuthor.id === currentUser.id){
       followButton = null;
-
+      imageOpt = <ul id={`image-options-${img.id}`} className="image-options">
+        <li onClick={this.props.removeImage}>Delete Post</li>
+        <li onClick={this.props.toggleOptions}>Cancel</li>
+      </ul>
     } else {
       followButton = <li id="follow-button" onClick={() => this.handleFollow(imgAuthor.id)}>Follow</li>
 
@@ -130,7 +133,8 @@ export default class ImageIndexItem extends React.Component {
       <div className="post-author">
         <img src={src} /><Link to={`/users/${imgAuthor.id}/profile`}>{imgAuthor.username}</Link>
         <ul>{followButton}</ul>
-        {deleteButton}
+        {optionsButton}
+        {imageOpt}
       </div>
 
       <div className="post-img" onDoubleClick={() => this.handleLike(img.id)}>

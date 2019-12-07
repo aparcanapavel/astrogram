@@ -26,6 +26,7 @@
   border-radius: 3px;
   display: block;
   position: relative;
+  overflow-x: hidden;
 }
 
 .post-img {
@@ -92,6 +93,47 @@
   float: right;
   padding: 10px;
   margin: 5px;
+  cursor: pointer;
+}
+
+.image-options{
+  display: block;
+  position: absolute;
+  background-color: white;
+  z-index: 11;
+  right:0px;
+  transform: translateX(100%);
+  border-radius: 3px;
+  border-top-right-radius: 0px;
+  margin-top: 46px;
+  border: 1px solid rgb(235, 235, 235);
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.show{
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.image-options li {
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.image-options li:first-child{
+  border-bottom: 1px solid rgb(235, 235, 235);
+  color:red;
+}
+
+.image-options li:first-child:hover{
+  background-color: rgba(255, 0, 0, 0.096);
+}
+
+.image-options li:last-child:hover{
+  background-color: rgba(128, 128, 128, 0.096);
 }
 
 .single-post .post-author a{
