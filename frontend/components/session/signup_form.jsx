@@ -30,7 +30,6 @@ export default class SignupForm extends React.Component {
       username: 'demoUser',
       password: 'password'
     });
-    // console.log(demoUser); //I want to see what the demo user variable
     this.props.login(demoUser);
   }
 

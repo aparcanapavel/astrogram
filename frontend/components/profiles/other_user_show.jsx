@@ -30,7 +30,6 @@ class OtherUserShow extends React.Component {
 
     let followData;
     if (this.state.followed) {
-      console.log("unfollowing...")
       this.props.unfollowUser(userId).then(() => {
         this.setState({ 
           followed: false,
@@ -39,7 +38,6 @@ class OtherUserShow extends React.Component {
       });
 
     } else {
-      console.log("following...")
       followData = {
         followee_id: userId
       }

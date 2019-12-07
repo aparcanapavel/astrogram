@@ -6,7 +6,6 @@ export default (state = [], action) => {
   switch (action.type) {
     
     case RECEIVE_USER_ERRORS:
-      debugger
       return action.errors;
   
     default:

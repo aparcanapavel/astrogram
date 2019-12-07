@@ -64,10 +64,8 @@ class ImageIndexItem extends React.Component {
   handleFollow(imgAuthorId) {
     let followData ;
     if (this.props.imgAuthor.followerIds.includes(this.props.currentUser.id)) {
-      console.log("unfollowing...");
       this.props.unfollowUser(imgAuthorId);
     } else {
-      console.log("following...");
       followData = {
         followee_id: imgAuthorId
       }

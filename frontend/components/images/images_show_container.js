@@ -14,7 +14,6 @@ const mstp = (state, ownProps) => {
     Object.values(state.entities.users).map(user => {
       if (image.authorId === user.id) {
         imageAuthor = user;
-        console.log(imageAuthor)
       }
     })
   }

@@ -18,7 +18,6 @@ export default class ImageIndex extends React.Component {
 
   showImageOptions(imageId) {
     document.getElementById(`image-options-${imageId}`).classList.toggle("show");
-    console.log("toggling options...");
   }
 
   render () {

@@ -72,10 +72,8 @@ class ImageShow extends React.Component {
   handleFollow(imgAuthorId) {
     let followData;
     if (this.props.imageAuthor.followerIds.includes(this.props.currentUser.id)) {
-      console.log("unfollowing...");
       this.props.unfollowUser(imgAuthorId);
     } else {
-      console.log("following...");
       followData = {
         followee_id: imgAuthorId
       }
@@ -90,7 +88,6 @@ class ImageShow extends React.Component {
 
   toggleOptions() {
     document.getElementById("image-show-options").classList.toggle("show");
-    console.log("toggling options...");
   }
 
   render() {
