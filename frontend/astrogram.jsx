@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  let http = require("http");
-  setInterval(function () {
-    http.get("https://astrogram-prod.herokuapp.com");
-  }, 300000); // every 5 minutes to keep site awake maybe make it longer?
+  // let http = require("http");
+  // setInterval(function () {
+  //   http.get("https://astrogram-prod.herokuapp.com");
+  // }, 300000); // every 5 minutes to keep site awake maybe make it longer?
   
   
   const root = document.getElementById("root");
