@@ -1,9 +1,18 @@
+.detail-top button{
+  cursor: pointer;
+}
+
 .detail-top button.profile-follow-button {
   background-color: rgba(0, 140, 247, 0.954);
   color: white;
   padding: 5px 20px; 
+  border-radius: 4px;
+  margin-left: 20px;
 }
 
 .detail-top button.profile-following{
   padding: 5px 11px; 
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 4px;
+  margin-left: 20px;
 }

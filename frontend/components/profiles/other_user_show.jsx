@@ -9,7 +9,8 @@ class OtherUserShow extends React.Component {
       loading: true,
       numFollowees: null,
       numFollowers: null,
-      followed: false
+      followed: false,
+      posts: null
     }
   }
 
@@ -21,9 +22,16 @@ class OtherUserShow extends React.Component {
         loading: false, 
         numFollowees: this.props.user.followeeIds.length,
         numFollowers: this.props.user.followerIds.length,
-        followed: this.props.user.followed
+        followed: this.props.user.followed,
+        posts: this.props.posts
       });
     })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.componentDidMount();
+    }
   }
 
   handleFollow(userId) {
@@ -52,9 +60,12 @@ class OtherUserShow extends React.Component {
   }
 
   render() {
-    if (this.state.loading) return null;
+    if (this.state.loading) {
+      return <i id="loading-logo" className="fab fa-instagram"></i>
+    }
     
-    const { user, posts } = this.props;
+    const { user } = this.props;
+    const posts = this.state.posts;
     // const following = user.followeeIds.length;
     // const followers = user.followerIds.length;
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
@@ -109,10 +120,10 @@ class OtherUserShow extends React.Component {
       )
     }
 
-
+    const src = user.imageUrl;
     return <section className="user-profile-container">
       <div className="profile-details">
-        <img src="" alt="" />
+        <img src={src} alt="" />
         <div className="detail-top">
           <h2>{user.username}</h2>
           {followButton}
@@ -131,7 +142,6 @@ class OtherUserShow extends React.Component {
       </div>
       <hr />
 
-      {/* outter container, user flex: column */}
       <div className="user-posts-container">
         {stacks}
       </div>

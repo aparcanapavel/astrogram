@@ -54,7 +54,7 @@ class EditProfile extends React.Component {
 
   render() {
     if(!this.props.currentUser){
-      return <h1>loading</h1>
+      return <i id="loading-logo" className="fab fa-instagram"></i>
     }
     const src = this.state.photoPreview === "" ? this.state.photoUrl : this.state.photoPreview;
 

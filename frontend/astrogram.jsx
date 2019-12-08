@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import { logout, signup } from './util/session_api_util';
 import configureStore from './store/store';
 import Root from "./components/root";
-import {login} from './actions/session_actions';
-import { fetchComments } from './actions/comment_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -20,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
+  let http = require("http");
+  setInterval(function () {
+    http.get("https://astrogram-prod.herokuapp.com");
+  }, 300000); // every 5 minutes to keep site awake maybe make it longer?
+  
   
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

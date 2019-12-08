@@ -29,10 +29,10 @@ class UserShow extends React.Component{
   }
 
   render() {    
-    const { user, posts } = this.props;
     if(this.state.loading){
       return <i id="loading-logo" className="fab fa-instagram"></i>
     }
+    const { user, posts } = this.props;
     const followers = user.followeeIds.length;
     const following = user.followerIds.length;
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>

@@ -7,7 +7,8 @@ import { fetchUsers } from '../../actions/user_actions';
 
 const mstp = ({ entities, session }) => {
   return {
-    currentUser: entities.users[session.id]
+    currentUser: entities.users[session.id],
+    users: Object.values(entities.users)
   }
 }
 
