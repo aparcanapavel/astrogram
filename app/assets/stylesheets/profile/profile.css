@@ -1,9 +1,6 @@
 .user-profile-container{
   position: relative;
   display: block;
-  /* -webkit-box-orient: horizontal; */
-  /* -webkit-box-direction: normal; */
-  /* flex-direction: row; */
   width: 960px;
   margin: 6px auto;
   -webkit-box-align: center;
@@ -59,7 +56,6 @@
 
 .detail-top a{
   border: 1px solid rgb(220, 220, 220);
-  /* color: rgb(220, 220, 220); */
   font-size: 14px;
   padding: 5px 8px;
   border-radius: 3px;
@@ -102,10 +98,8 @@
 
 .user-posts-container .posts-stack .post-item{
   display: flex;
-  /* flex-direction: row; */
   width: 33%;
   overflow: hidden;
-  /* box-sizing: border-box; */
   margin: 20px;
   position: relative;
   z-index: 1;
@@ -117,7 +111,7 @@
 }
 
 .profile-post-icons{
-  display: none;
+  /* display: none; */
   position: absolute;
   color: white;
   height: 100%;
@@ -131,6 +125,7 @@
   z-index: 0;
   overflow: hidden;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .profile-post-icons i,
@@ -144,9 +139,15 @@
   margin: 10px;
 }
 
-.post-item:hover .profile-post-icons{
+.posts-stack .post-item .profile-post-icons{
+  opacity: 0;
+  transition: opacity 0.2s;
   display: block;
-  transition: 0.3s;
+}
+
+.posts-stack .post-item:hover .profile-post-icons{
+  opacity: 1;
+  transition: opacity 0.4s;
 }
 
 .profile-single-image{

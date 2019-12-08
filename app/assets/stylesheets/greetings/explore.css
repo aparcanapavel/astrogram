@@ -39,6 +39,22 @@
   z-index: 1;
 }
 
+.stacks-container .posts-stack .post-item:hover{
+  cursor: pointer;
+}
+
+.stacks-container .posts-stack .post-item .profile-post-icons{
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: block;
+}
+
+.stacks-container .posts-stack .post-item:hover .profile-post-icons{
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+
+
 .stacks-container .posts-stack:last-child .post-item:nth-child(2) {
   margin: 15px 0px;
   margin-left: -12px;

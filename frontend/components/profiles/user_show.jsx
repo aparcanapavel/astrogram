@@ -39,6 +39,7 @@ class UserShow extends React.Component{
 
     posts.reverse();
     
+    let ulKey = 1;
     let stacks = [];
     let row = [];
     for(let i = 0; i < posts.length; i++){
@@ -56,19 +57,20 @@ class UserShow extends React.Component{
       </li>)
 
       if(row.length === 3){
-        stacks.push(<ul key={i} className="posts-stack">
+        stacks.push(<ul key={ulKey} className="posts-stack">
           {row}
         </ul>)
+        ulKey++;
         row = [];
       } 
     }
-
+    // need to figure out how to give each of the UL's an unique key
     if (stacks.length === 0) {
-      stacks.push(<ul key={row[row.length -1].id} className="posts-stack">
+      stacks.push(<ul key={ulKey + 1} className="posts-stack">
         {row}
       </ul>)
     } else if (row.length > 0) {
-      stacks.push(<ul key={row[row.length - 1].id} className="posts-stack">
+      stacks.push(<ul key={ulKey + 1} className="posts-stack">
         {row}
       </ul>)
     }

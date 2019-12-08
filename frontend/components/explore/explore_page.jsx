@@ -29,6 +29,7 @@ class ExplorePage extends React.Component{
 
     posts.reverse();
 
+    let ulKey = 1;
     let stacks = [];
     let row = [];
     for (let i = 0; i < posts.length; i++) {
@@ -49,16 +50,17 @@ class ExplorePage extends React.Component{
         stacks.push(<ul key={i} className="posts-stack">
           {row}
         </ul>)
+        ulKey++;
         row = [];
       }
     }
     //need to find a way to put unique keys per ul outside the loop
     if (stacks.length === 0) {
-      stacks.push(<ul key={row[0].id} className="posts-stack">
+      stacks.push(<ul key={ulKey + 1} className="posts-stack">
         {row}
       </ul>)
     } else if (row.length > 0) {
-      stacks.push(<ul key={row[0].id} className="posts-stack">
+      stacks.push(<ul key={ulKey + 1} className="posts-stack">
         {row}
       </ul>)
     }
