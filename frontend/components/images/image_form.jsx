@@ -7,7 +7,8 @@ class ImageForm extends React.Component {
     this.state = {
       caption: "",
       photoFile: null,
-      photoURL: null
+      photoURL: null,
+      loadingButton: false
     }
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,14 +21,21 @@ class ImageForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const button = document.getElementById("new-image-button");
+    button.disabled = true;
     const formData = new FormData();
     formData.append('image[caption]', this.state.caption);
     formData.append('image[photo]', this.state.photoFile);
 
-    this.props.createImage(formData);
+    this.props.createImage(formData).then(image => {
+      const imgIds = Object.keys(this.props.posts);
+      if (imgIds.includes(image.image.id.toString())){
+        this.props.closeModal();
+        this.props.history.push("/");
+      }
+    });
     if(this.state.photoURL){
-      this.props.closeModal();
-      this.props.history.push("/");
+      this.setState({ loadingButton: true });
     }
 
     //turn img form, add a with router on container, '.then" this.props.history.push. to the latest image id
@@ -65,6 +73,8 @@ class ImageForm extends React.Component {
         onChange={this.handleFile}
       />
     } 
+    
+    let buttonText = this.state.loadingButton ? <i id="loading-button" className="fas fa-circle-notch"></i> : "Upload Image";
 
     return <section className="post-form-container">
       <div className="post-form-modal">
@@ -86,7 +96,7 @@ class ImageForm extends React.Component {
 
           <br/>
 
-          <button>Upload Image</button>
+          <button id="new-image-button">{buttonText}</button>
 
           <ul className="formErrors">{errList}</ul>
         </form>

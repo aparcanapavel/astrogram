@@ -53,6 +53,8 @@ class LoggedIn extends React.Component {
   }
 
   escapeResults() {
+    document.getElementById("search-bar-field").disabled = true;
+
     const resultsUL = document.getElementById('search-results');
     const escape = document.getElementById('escape');
     resultsUL.classList.remove("show-results");
@@ -60,6 +62,7 @@ class LoggedIn extends React.Component {
     this.timeout = setTimeout(() => {
       resultsUL.style.display = "none";
       escape.style.display = "none";
+      document.getElementById("search-bar-field").disabled = false;
     }, 300);
     return this.setState({ search: "" });
   }
@@ -95,9 +98,9 @@ class LoggedIn extends React.Component {
   }
 
   render () {  
-    document.onkeydown = function (evt) {
-      evt = evt || window.event;
-      if (evt.keyCode == 27) {
+    document.onkeydown = function (event) {
+      event = event || window.event;
+      if (event.keyCode == 27) {
         this.escapeResults();
       }
     }.bind(this); 

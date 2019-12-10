@@ -6,6 +6,7 @@ import { closeModal } from '../../actions/modal_actions';
 const mstp = ({ errors, entities, session }) => {
   return {
     // errors: state.errors.image
+    posts: entities.posts,
     errors: errors.image,
     currentUser: entities.users[session.id]
   }

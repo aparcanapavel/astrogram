@@ -12,6 +12,11 @@ class OtherUserShow extends React.Component {
       followed: false,
       posts: null
     }
+    this.toPicture = this.toPicture.bind(this);
+  }
+
+  toPicture(pictureId) {
+    this.props.history.push(`/feed/${pictureId}`);
   }
 
   componentDidMount() {
@@ -75,7 +80,7 @@ class OtherUserShow extends React.Component {
     for (let i = 0; i < posts.length; i++) {
       let likes = posts[i].likeIds.length;
       let comments = posts[i].commentIds.length;
-      row.push(<li key={posts[i].id} className="post-item">
+      row.push(<li key={posts[i].id} className="post-item" onClick={() => this.toPicture(posts[i].id)}>
         <div className="profile-post-icons">
           <i className="fas fa-heart"></i><p>{likes}</p>
           <i className="far fa-comment"></i><p>{comments}</p>

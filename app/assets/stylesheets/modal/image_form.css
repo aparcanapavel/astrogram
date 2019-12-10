@@ -82,3 +82,22 @@
   margin-top: 6px;
   margin-bottom: 6px;
 }
+
+#loading-button{
+  /* transform: rotate(); */
+   -webkit-animation: rotating 2.3s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.image-upload-form > button:disabled{
+  background-color: rgb(109, 185, 244);
+  cursor: default;
+}

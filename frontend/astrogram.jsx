@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { logout, signup } from './util/session_api_util';
 import configureStore from './store/store';
 import Root from "./components/root";
+const http = require("http");
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -18,10 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  // let http = require("http");
+
   // setInterval(function () {
-  //   http.get("https://astrogram-prod.herokuapp.com");
-  // }, 300000); // every 5 minutes to keep site awake maybe make it longer?
+  //   http.get("https://astrogram-prod.herokuapp.com").mode("no-cors");
+    
+  // }, 3000); // every 5 minutes to keep site awake maybe make it longer?
   
   
   const root = document.getElementById("root");
