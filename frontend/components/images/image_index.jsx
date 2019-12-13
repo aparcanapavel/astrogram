@@ -32,7 +32,7 @@ export default class ImageIndex extends React.Component {
 
       let imgAuthor = users[img.authorId];
       
-      if(currentUser.followeeIds.length === 0){
+      if(currentUser.followerIds.length === 0){
         return <ImageIndexItemContainer 
         removeImage={() => this.removeImage(img.id)} 
         optionsButton={optionsButton}
@@ -43,8 +43,7 @@ export default class ImageIndex extends React.Component {
         currentUser={currentUser}
         toggleOptions={() => this.showImageOptions(img.id)}
         />
-      } else if (currentUser.followeeIds.includes(img.authorId) || currentUser.id === img.authorId) {
-
+      } else if (currentUser.followerIds.includes(img.authorId) || currentUser.id === img.authorId) {
         return <ImageIndexItemContainer
           removeImage={() => this.removeImage(img.id)}
           optionsButton={optionsButton}

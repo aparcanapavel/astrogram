@@ -25,8 +25,8 @@ class OtherUserShow extends React.Component {
     this.props.fetchUser(userId).then(() => this.props.fetchImages(this.props.user.id)).then(() => {
       this.setState({ 
         loading: false, 
-        numFollowees: this.props.user.followeeIds.length,
-        numFollowers: this.props.user.followerIds.length,
+        numFollowers: this.props.user.followeeIds.length,
+        numFollowees: this.props.user.followerIds.length,
         followed: this.props.user.followed,
         posts: this.props.posts
       });
@@ -71,8 +71,7 @@ class OtherUserShow extends React.Component {
     
     const { user } = this.props;
     const posts = this.state.posts;
-    // const following = user.followeeIds.length;
-    // const followers = user.followerIds.length;
+    
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
 
     let stacks = [];

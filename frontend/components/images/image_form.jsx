@@ -31,14 +31,12 @@ class ImageForm extends React.Component {
       const imgIds = Object.keys(this.props.posts);
       if (imgIds.includes(image.image.id.toString())){
         this.props.closeModal();
-        this.props.history.push("/");
       }
     });
     if(this.state.photoURL){
+      this.toHome();
       this.setState({ loadingButton: true });
     }
-
-    //turn img form, add a with router on container, '.then" this.props.history.push. to the latest image id
   }
 
   handleFile(e) {

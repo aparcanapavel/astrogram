@@ -1,0 +1,41 @@
+#astro-wallpaper{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: auto;
+  /* transform: translateX(-10%); */
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-property: transform;
+
+  transition-duration: 0.7s;
+  -webkit-transition-duration: 0.7s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;  
+}
+
+#astro-wallpaper.home{
+  top: 0px;
+  /* left: 0px; */
+  height: 100%;
+  width: auto;
+  transform: translateX(0%);
+}
+
+#astro-wallpaper.explore{
+  top: 0px;
+  /* left: 0px; */
+  height: 100%;
+  width: auto;
+  transform: translateX(-10%);
+}
+
+#astro-wallpaper.profile{
+  top: 0px;
+  height: 100%;
+  width: auto;
+  transform: translateX(-20%);
+}

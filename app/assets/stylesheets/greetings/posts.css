@@ -110,6 +110,7 @@
   text-align: center;
   opacity: 0;
   transition: 0.3s;
+  will-change: transform, opacity;
 }
 
 .show{

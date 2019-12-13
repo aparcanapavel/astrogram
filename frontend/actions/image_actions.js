@@ -56,7 +56,5 @@ export const createImage = image => dispatch => {
 
 export const deleteImage = imageId => dispatch => {
   return ImageAPI.deleteImage(imageId)
-    .then(() => (dispatch(removeImage(imageId))), err =>(
-      dispatch(receiveImageErrors(err.responseJSON))
-    ));
+    .then(() => (dispatch(removeImage(imageId))))
 }

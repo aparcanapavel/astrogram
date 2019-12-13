@@ -82,8 +82,8 @@ class ImageShow extends React.Component {
   }
   // image options controll
   removeImage(imageId) {
-    this.props.deleteImage(imageId);
     this.props.history.push(`/users/${this.props.currentUser.id}/profile`);
+    this.props.deleteImage(imageId)
   }
 
   toggleOptions() {

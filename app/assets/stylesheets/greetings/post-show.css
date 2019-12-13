@@ -19,6 +19,7 @@
   max-width: 60%;
   max-height: 700px;
   object-fit: cover;
+  vertical-align: middle;
 }
 
 .post-show-img i {

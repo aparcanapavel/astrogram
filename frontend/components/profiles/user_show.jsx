@@ -25,7 +25,7 @@ class UserShow extends React.Component{
   componentDidMount() {
     this.props.fetchImages(this.props.user.id).then(() => {
       this.setState({ loading: false });
-    });
+    })
   }
 
   render() {    

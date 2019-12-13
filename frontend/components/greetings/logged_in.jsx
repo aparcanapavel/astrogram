@@ -39,6 +39,7 @@ class LoggedIn extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
+    
   }
 
   doesMatch(user, search){
@@ -106,7 +107,7 @@ class LoggedIn extends React.Component {
     }.bind(this); 
     return <nav className="nav-bar">
       <ul className="nav-list">
-        <li onClick={this.toHome}><i className="fab fa-instagram"></i><h1 className='astrogram-nav'>Astrogram</h1></li>
+        <li onClick={this.toHome}><i className="fas fa-satellite"></i><h1 className='astrogram-nav'>Astrogram</h1></li>
         <li>
           <div className="nav-search">
             <label htmlFor="search-bar-field" id="escape" onClick={this.escapeResults}>x</label>
@@ -125,7 +126,7 @@ class LoggedIn extends React.Component {
         </li>
         <li onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
         <li><Link to="/explore" className="far fa-compass"></Link></li>
-        <li><Link to={`/users/${this.props.currentUser.id}/profile`} className="far fa-user"></Link></li>
+        <li><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
       </ul>
       <Modal />
     </nav>
