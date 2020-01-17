@@ -43,10 +43,14 @@ export default class Greeting extends React.Component {
             <img src={window.images.splash} alt=""/>
         </div>
 
-        <div>
+        <div className="signup-welcome">
           <AuthRoute path="/" component={SignupFormContainer} />
+          <div className="signature">
+            <p>Developed by <a href="https://pavelaparcana.com/">Pavel Aparcana</a></p>
+          </div>
         </div>
 
+        
       </section>
     );
 
