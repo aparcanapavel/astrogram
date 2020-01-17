@@ -95,12 +95,16 @@ class ImageIndexItem extends React.Component {
     });
 
     let postLikes;
-    if(likes.length > 1){
-      postLikes = <p className="post-likes">{likes.length} likes</p>;
-    } else if (likes.length === 0){
+    if(imgAuthor.id !== currentUser.id){
       postLikes = null;
     } else {
-      postLikes = <p className="post-likes">{likes.length} like</p>;
+      if (likes.length > 1) {
+        postLikes = <p className="post-likes">{likes.length} likes</p>;
+      } else if (likes.length === 0) {
+        postLikes = null;
+      } else {
+        postLikes = <p className="post-likes">{likes.length} like</p>;
+      }
     }
 
     if (likes.every(like => like.authorId !== currentUser.id)) {
