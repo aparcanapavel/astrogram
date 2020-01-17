@@ -110,10 +110,10 @@ class ImageIndexItem extends React.Component {
     }
 
 
-    const numComments = img.commentIds.length > 4 ? <p className="num-comments" onClick={() => this.toImage(img.id)}>View all {comments.length} comments</p> : null
+    const numComments = img.commentIds.length > 2 ? <p className="num-comments" onClick={() => this.toImage(img.id)}>View all {comments.length} comments</p> : null
 
-    if(comments.length > 4){
-      comment_list = comment_list.reverse().slice(0,4).reverse();
+    if(comments.length > 2){
+      comment_list = comment_list.reverse().slice(0,2).reverse();
     }
     let followButton;
     let imageOpt;
