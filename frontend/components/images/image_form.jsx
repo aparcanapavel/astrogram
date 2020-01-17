@@ -41,9 +41,12 @@ class ImageForm extends React.Component {
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
+    if (file.type && file.type.split("/")[0] !== "image") {
+      alert("We currently only allow images");
+      return;
+    }
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-
       this.setState({ photoFile: file, photoURL: fileReader.result })
     }
     if(file) {
