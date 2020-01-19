@@ -11,20 +11,18 @@ This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the
 3. PostgreSQL
 4. HTML
 5. CSS
-
-### Libraries Used:
-* React.js
-* Redux.js
-* jQuery for Ajax calls to my API & for animations
-* BCrypt for user passwords
-* AWS S3 buckets to store user images
+6. React.js
+7. Redux.js
+8. jQuery for Ajax calls to my API & for animations
+9. BCrypt for user passwords
+10. AWS S3 buckets to store user images
 ### Features:
 * Sign up, log in, log out with username & password
-* Image upload form
-* Image likes and unlikes
+* Image upload Modal
+* Image likes and unlikes with animation
 * Profile show
 * Follow and unfollow users
-* Filtered feed that only show users being followed
+* Filtered feed that only shows users being followed by the current user.
 * Search for users
 * Edit profile
 
