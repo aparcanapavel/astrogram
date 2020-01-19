@@ -2,7 +2,7 @@
 
 [Live Link](https://astrogram-prod.herokuapp.com/)
 
-This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the basic features of instagram, like creating an account, logging in, logging out, staying logged in after refreshing the page, and having a profile show page for users(current user pofile will display different settings). Further, *Astrogram* also has a feature outside of what is included in Instagram, uploading images from the browser instead of the app.
+This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the basic features of Instagram, like creating an account, logging in, logging out, staying logged in after refreshing the page, and having a profile show page for users(current user pofile will display different settings). Further, *Astrogram* also has a feature outside of what is included in Instagram, uploading images from the browser.
 
 
 ### Technologies Used:
@@ -17,7 +17,7 @@ This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the
 * Redux.js
 * jQuery for Ajax calls to my API & for animations
 * BCrypt for user passwords
-* AWS S3 buckets to store images
+* AWS S3 buckets to store user images
 ### Features:
 * Sign up, log in, log out with username & password
 * Image upload form
@@ -25,7 +25,6 @@ This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the
 * Profile show
 * Follow and unfollow users
 * Filtered feed that only show users being followed
-#### Beta Features:
 * Search for users
 * Edit profile
 
