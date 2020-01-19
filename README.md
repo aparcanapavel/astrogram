@@ -9,10 +9,10 @@ This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the
 1. JavaScript
 2. Ruby on Rails
 3. PostgreSQL
-4. HTML
-5. CSS
-6. React.js
-7. Redux.js
+4. React.js
+5. Redux.js
+6. HTML5
+7. CSS3
 8. jQuery for Ajax calls to my API & for animations
 9. BCrypt for user passwords
 10. AWS S3 buckets to store user images
