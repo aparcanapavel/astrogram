@@ -33,7 +33,7 @@ Bellow is the splash screen for a new visiting user
 In order to handle the likes annimation, I used basic jQuery to add and remove classess to the heart element. In the end, it allowed me to create a simple annimation that expands and fills the heart for   liking it, and it shrinks and shows a different heart uppon unliking the picture.
 
 ```js
-//frontend/components/image_index_item.jsx
+// #frontend/components/image_index_item.jsx
 handleLike(imageId) {
     const { currentUser, likes } = this.props;
 
