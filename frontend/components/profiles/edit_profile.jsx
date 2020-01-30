@@ -13,10 +13,32 @@ class EditProfile extends React.Component {
       username: this.props.currentUser.username,
       photoFile: null,
       photoUrl: "",
-      photoPreview: ""
+      photoPreview: "",
+      switchMenu: "profile"
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.switchMenu = this.switchMenu.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
+  }
+
+  toggleTheme(e) {
+    let currTheme = document.documentElement.attributes[0].value;
+    if(currTheme === "light"){
+      document.documentElement.setAttribute('data-theme', "");
+      document.documentElement.setAttribute('data-theme', "dark");
+    } else {
+      document.documentElement.setAttribute('data-theme', "");
+      document.documentElement.setAttribute('data-theme', "light");
+    }
+  }
+
+  switchMenu(choice){
+    if(choice === "profile"){
+      this.setState({ switchMenu: "profile"});
+    } else {
+      this.setState({ switchMenu: "theme"});
+    }
   }
 
   componentDidMount() {
@@ -60,60 +82,67 @@ class EditProfile extends React.Component {
 
     const errList = this.props.errors.map((err, i) => <li key={i}>{err}</li>);
 
+    const editProfile = <form className="edit-profile-form" onSubmit={this.handleSubmit}>
+        <div className="profile-picture-peview">
+          <input
+            id="profile-file"
+            type="file"
+            style={{ visibility: 'hidden' }}
+            onChange={this.handleFile}
+          />
+          <img
+            src={src} className="edit-profile-img" />
+        </div>
+        <h4>{this.props.currentUser.username}</h4>
+        <label id="label-file" htmlFor="profile-file" className="btn">
+          Change Profile Picture
+            </label>
+        <br />
+
+        <label htmlFor="editUserName">Name</label>
+        <input
+          id="editUserName"
+          type="text"
+          value={this.state.name}
+          onChange={this.updateField('name')}
+        />
+
+        <br />
+
+        <label htmlFor="editUsername">Username</label>
+        <input
+          id="editUsername"
+          type="text"
+          value={this.state.username}
+          onChange={this.updateField('username')}
+        />
+
+        <br />
+
+        <ul className="editProfileErrors">{errList}</ul>
+
+        <input type="submit" value="Submit" />
+      </form>
+
+    const editTheme = <div className="edit-theme">
+      <p>To toggle the theme, click the icon:</p>
+      <i className="fas fa-adjust" onClick={this.toggleTheme}></i>
+    </div>
+    
     return (
       <div className="edit-profile-container">
        <nav>
         <ul className="edit-profile-menu">
-          <li>
+          <li onClick={() => this.switchMenu("profile")}>
             Edit Profile
           </li>
-          <li>
+          <li onClick={() => this.switchMenu("theme")}>
             Theme
           </li>
         </ul>
        </nav>
        <div className="edit-profile-details">
-          <form className="edit-profile-form" onSubmit={this.handleSubmit}>
-            <div className="profile-picture-peview">
-              <input
-                id="profile-file"
-                type="file"
-                style={{ visibility: 'hidden' }}
-                onChange={this.handleFile}
-              />
-              <img
-                src={src} className="edit-profile-img" />
-            </div>
-            <h4>{this.props.currentUser.username}</h4>
-            <label id="label-file" htmlFor="profile-file" className="btn">
-              Change Profile Picture
-            </label>
-            <br/>
-
-            <label htmlFor="editUserName">Name</label>
-            <input 
-            id="editUserName"
-            type="text"
-            value={this.state.name}
-            onChange={this.updateField('name')}
-            />
-
-            <br/>
-
-            <label htmlFor="editUsername">Username</label>
-            <input 
-            id="editUsername"
-            type="text"
-            value={this.state.username}
-            onChange={this.updateField('username')}
-            />
-
-            <br/>
-
-            <ul className="editProfileErrors">{errList}</ul>
-
-            <input type="submit" value="Submit"/>
-          </form>
+          {this.state.switchMenu === "profile" ? editProfile : editTheme}
        </div>
       </div>
     )

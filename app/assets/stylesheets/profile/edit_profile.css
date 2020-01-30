@@ -108,3 +108,17 @@
   color: rgba(255, 0, 0, 0.7);
   font-size: 14px;
 }
+
+.edit-theme{
+  position: relative;
+}
+
+.edit-theme p,
+.edit-theme i {
+  display: inline-block;
+}
+
+.edit-theme i{
+  margin-left: 20px;
+  cursor: pointer;
+}
