@@ -15,3 +15,13 @@ html[data-theme='dark']{
   --enabled-blue: rgba(0,140,247,0.954);
   --color: white;
 }
+
+body{
+  background-color: var(--main-bg);
+  color: var(--color);
+}
+
+.nav-bar{
+  background-color: var(--items-bg);
+  border-bottom: 1px solid var(--items-border);
+}

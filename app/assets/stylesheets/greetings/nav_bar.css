@@ -2,8 +2,6 @@
   position: fixed;
   display: block;
   width: 100%;
-  background-color: white;
-  border-bottom: 1px solid rgb(230, 229, 229);
   align-items: center;
   z-index: 10;
 }
