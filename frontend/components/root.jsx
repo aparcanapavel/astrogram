@@ -11,13 +11,11 @@ const getInitialTheme = () =>{
 
 const Root = ({ store }) => {
   const [userTheme] = useState(getInitialTheme);
-  console.log(userTheme);
   if (userTheme.userTheme === "light") {
     document.documentElement.setAttribute("data-theme", "light");
   } else {
     document.documentElement.setAttribute("data-theme", "dark");
   }
-  // debugger
   useEffect(() => {
     storage.setItem('userTheme', JSON.stringify(userTheme))
   }, [userTheme]);
