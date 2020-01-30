@@ -25,7 +25,6 @@
   margin: 20px;
   box-sizing: border-box;
   padding-right: 20px;
-  border-right: 1px solid black;
 }
 
 .nav-list > li:first-child {
@@ -108,8 +107,6 @@
 
 #search-results {
   position: absolute;
-  background-color: white;
-  border: 1px solid rgb(235, 235, 235);
   font-family: sans-serif;
   width: 100%;
   box-sizing: border-box;
@@ -127,9 +124,7 @@
 
 #search-results li {
   display: block;
-  border-bottom: 1px solid gray;
   padding: 10px 15px;
-  background-color: white;
   transition: background-color 0.3s;
   cursor: pointer;
 }
@@ -139,7 +134,7 @@
 }
 
 #search-results li:hover{
-  background-color: rgb(235, 235, 235);
+  background-color: rgba(128, 128, 128, 0.096)
 }
 
 #search-results li img,

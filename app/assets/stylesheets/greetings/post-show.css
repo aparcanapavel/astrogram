@@ -3,8 +3,6 @@
   position: relative;
   width: 80%;
   margin: 0 auto;
-  border: 1px solid rgb(235, 235, 235);
-  background-color: white;
   border-radius: 3px;
   font-family: sans-serif;
   overflow:hidden;
@@ -67,8 +65,6 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
-  border-top: 1px solid rgb(235, 235, 235);
-  background-color: white;
 }
 
 .image-show-details .bottom-details input {

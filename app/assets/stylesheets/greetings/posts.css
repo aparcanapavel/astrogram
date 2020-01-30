@@ -97,14 +97,12 @@
 .image-options{
   display: block;
   position: absolute;
-  background-color: white;
   z-index: 11;
   right:0px;
   transform: translateX(100%);
   border-radius: 3px;
   border-top-right-radius: 0px;
   margin-top: 46px;
-  border: 1px solid rgb(235, 235, 235);
   text-align: center;
   opacity: 0;
   transition: 0.3s;
@@ -123,7 +121,6 @@
 }
 
 .image-options li:first-child{
-  border-bottom: 1px solid rgb(235, 235, 235);
   color:red;
 }
 
@@ -202,7 +199,6 @@
   position: relative;
   display: block;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(235, 235, 235); 
 }
 
 .comment-item-preview p{
@@ -211,8 +207,7 @@
 
 .comment-item-preview p:nth-child(2){
   margin-left: 5px;
-  font-size: 14px;
-  color: rgb(31, 31, 31);  
+  font-size: 14px; 
   font-family: 'Noto Sans JP', sans-serif;
 }
 

@@ -42,3 +42,6 @@ button { */
   -moz-appearance: searchfield;
   appearance: searchfield;
 } */
+body::-webkit-scrollbar {
+  display: none;
+}

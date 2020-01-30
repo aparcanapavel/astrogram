@@ -63,9 +63,12 @@ class EditProfile extends React.Component {
     return (
       <div className="edit-profile-container">
        <nav>
-        <ul>
+        <ul className="edit-profile-menu">
           <li>
             Edit Profile
+          </li>
+          <li>
+            Theme
           </li>
         </ul>
        </nav>

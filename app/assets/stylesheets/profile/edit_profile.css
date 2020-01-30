@@ -5,9 +5,6 @@
   margin: 6px auto;
   -webkit-box-align: center;
   align-items: center;
-  /* padding-top: 30px; */
-  background-color: white;
-  border: 1px solid rgb(235, 235, 235);
   font-family: sans-serif;
 }
 
@@ -21,20 +18,23 @@
 
 .edit-profile-container nav ul li{
   font-size: 18px;
-  border-left: 2px solid black;
   padding: 10px;
   padding-right: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-container nav ul li:hover{
+  background-color: rgba(128, 128, 128, 0.096)
 }
 
 .edit-profile-container nav{
   position: relative;
   height: 100%;
   width: 160px;
-  /* border-right: 1px solid rgb(235, 235, 235); */
 }
 
 .edit-profile-container .edit-profile-details {
-  border-left: 1px solid rgb(235, 235, 235);
   padding: 50px;
   width: 700px;
 }
@@ -59,6 +59,9 @@
 .edit-profile-form input[type="text"]{
   margin-bottom: 20px;
   margin-top: 20px;
+  border-radius: 3px;
+  padding: 3px;
+  box-sizing: border-box;
 }
 
 .edit-profile-form input[type="submit"]{
@@ -66,6 +69,13 @@
   position: relative;
   display: block;
   cursor: pointer;
+  padding: 10px 25px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-form input[type="submit"]:hover{
+  background-color: rgba(128, 128, 128, 0.096);
 }
 
 .edit-profile-form #label-file {
