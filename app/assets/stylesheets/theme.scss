@@ -33,7 +33,11 @@ body{
 #search-results li,
 #search-results,
 .edit-profile-container,
-#post-show-container{
+#post-show-container,
+.signup-form-container .signup-form,
+.signup-form-container .optional-session-form,
+.session-form-container .session-form,
+.session-form-container .optional-session-form{
   border: 1px solid var(--items-border);
   background-color: var(--items-bg);
   color: var(--color);
@@ -55,7 +59,9 @@ body{
   color: var(--color)
 }
 
-.image-upload-form input[type="text"] {
+.image-upload-form input[type="text"],
+.signup-form > form > input,
+.session-form > form > input {
   border: 1px solid var(--items-border);
   background-color: var(--items-border);
   color: var(--color);
@@ -103,4 +109,8 @@ body{
 .comment-item-preview p:nth-child(2),
 .post-caption p:nth-child(2){
   color: var(--comment-color);  
+}
+
+.demo{
+  color: var(--enabled-blue)
 }

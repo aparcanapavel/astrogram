@@ -21,10 +21,8 @@
 
 .session-form-container .session-form,
 .session-form-container .optional-session-form{
-  background-color: white;
   width: 260px;
   text-align: center;
-  border: 1px solid rgb(235, 235, 235);
   padding: 25px;
 }
 
@@ -97,15 +95,12 @@
 }
 
 .demo {
-  color: rgb(0, 0, 155);
   font-size: 14px;
   cursor: pointer;
 }
 
 .session-form > form > input{
   width: 100%;
-  background-color: rgb(250, 250, 250);
-  border: 1px solid  rgb(235, 235, 235);
   -webkit-appearance: searchfield; 
   margin: 3px 0px;
   padding: 10px 0px;

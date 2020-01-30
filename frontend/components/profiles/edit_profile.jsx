@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 import { updateUser } from '../../actions/user_actions'
+import storage from "local-storage-fallback";
 
 class EditProfile extends React.Component {
   constructor(props) {
@@ -27,9 +28,11 @@ class EditProfile extends React.Component {
     if(currTheme === "light"){
       document.documentElement.setAttribute('data-theme', "");
       document.documentElement.setAttribute('data-theme', "dark");
+      storage.setItem("userTheme", JSON.stringify({ userTheme: "dark" }));
     } else {
       document.documentElement.setAttribute('data-theme', "");
       document.documentElement.setAttribute('data-theme', "light");
+      storage.setItem("userTheme", JSON.stringify({ userTheme: "light" }));
     }
   }
 
