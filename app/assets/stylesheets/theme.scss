@@ -1,0 +1,17 @@
+html{
+  --main-bg: rgb(250, 250, 250);
+  --items-bg: white;
+  --items-border: #ebebeb;
+  --disabled-blue: rgba(0,140,247,0.303);
+  --enabled-blue: rgba(0,140,247,0.954);
+  --color: black;
+}
+
+html[data-theme='dark']{
+  --main-bg: rgb(40, 40, 40);
+  --items-bg: rgb(26, 26, 26);
+  --items-border: rgb(73, 73, 73);
+  --disabled-blue: rgba(0,140,247,0.303);
+  --enabled-blue: rgba(0,140,247,0.954);
+  --color: white;
+}
