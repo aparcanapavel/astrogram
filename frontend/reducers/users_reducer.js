@@ -2,7 +2,6 @@ import { RECEIVE_ALL_USERS, RECEIVE_USER } from "../actions/user_actions";
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions'
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW, RECEIVE_FOLLOW_ERRORS, RECEIVE_ALL_FOLLOWERS } from '../actions/follow_actions';
 
-//need to redo this to accept all the users
 export default (state = {}, action) => {
   Object.freeze(state);
   const copyState = Object.assign({}, state);

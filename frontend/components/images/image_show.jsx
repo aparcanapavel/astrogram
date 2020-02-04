@@ -133,9 +133,6 @@ class ImageShow extends React.Component {
 
     const numComments = image.commentIds.length > 4 ? <p className="num-comments">View all {comments.length} comments</p> : null
 
-    // if(comments.length > 1){
-    //   comment_list = comment_list.slice(0,1);
-    // }
     let followButton;
     if (imageAuthor.followerIds.includes(currentUser.id)) {
 

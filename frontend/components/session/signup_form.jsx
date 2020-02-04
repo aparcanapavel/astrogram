@@ -38,7 +38,6 @@ export default class SignupForm extends React.Component {
       const signupContainer = document.getElementById('signup');
       $(signupContainer).addClass('session-form-container');
     } 
-    // this.props.openModal('loginOptions');
   }
 
   componentWillUnmount() {

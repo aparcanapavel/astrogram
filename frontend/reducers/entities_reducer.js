@@ -6,7 +6,7 @@ import likesReducer from "./like_reducer";
 import followersReducer from './follows_reducer';
 
 const entitiesReducer = combineReducers({
-  users: usersReducer,//this is where the images, comments and likes will go as well
+  users: usersReducer,
   posts: imageReducer,
   comments: commentsReducer,
   likes: likesReducer,

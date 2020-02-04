@@ -21,9 +21,7 @@ function Modal({ modal, closeModal }) {
       break;
     case 'gearOptions':
       component = <GearOptions />;
-      break;
-    // case 'imageShow':
-    //   component = <ImageShowContainer />;    
+      break;   
     default:
       return null;
   }

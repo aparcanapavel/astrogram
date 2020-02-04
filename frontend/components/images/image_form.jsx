@@ -52,7 +52,6 @@ class ImageForm extends React.Component {
     if(file) {
       fileReader.readAsDataURL(file);
     }
-    //need to see how to not rotate vertical images by default to landscape
   }
   
 

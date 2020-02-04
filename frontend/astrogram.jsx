@@ -19,12 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
-  // setInterval(function () {
-  //   http.get("https://astrogram-prod.herokuapp.com").mode("no-cors");
-    
-  // }, 3000); // every 5 minutes to keep site awake maybe make it longer?
-  
   
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
