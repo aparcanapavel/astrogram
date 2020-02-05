@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Modal from '../modal/modal';
+import storage from "local-storage-fallback";
 
 class LoggedIn extends React.Component {
   constructor(props) {
@@ -98,6 +99,19 @@ class LoggedIn extends React.Component {
     }
   }
 
+  toggleTheme(e) {
+    let currTheme = document.documentElement.attributes[0].value;
+    if (currTheme === "light") {
+      document.documentElement.setAttribute('data-theme', "");
+      document.documentElement.setAttribute('data-theme', "dark");
+      storage.setItem("userTheme", JSON.stringify({ userTheme: "dark" }));
+    } else {
+      document.documentElement.setAttribute('data-theme', "");
+      document.documentElement.setAttribute('data-theme', "light");
+      storage.setItem("userTheme", JSON.stringify({ userTheme: "light" }));
+    }
+  }
+
   render () {  
     document.onkeydown = function (event) {
       event = event || window.event;
@@ -126,6 +140,7 @@ class LoggedIn extends React.Component {
         </li>
         <li onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
         <li><Link to="/explore" className="far fa-compass"></Link></li>
+        <li><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
         <li><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
       </ul>
       <Modal />

@@ -63,12 +63,21 @@
 
 .nav-list > li:nth-child(3),
 .nav-list > li:nth-child(4),
+.nav-list > li:nth-child(6),
 .nav-list > li:nth-child(5){
   font-size: 20px;
   margin: 15px;
   box-sizing: border-box;
   /* padding-right: 20px; */
   font-weight: 100;
+  transition:color 0.2s;
+}
+
+.nav-list > li:nth-child(3):hover,
+.nav-list > li:nth-child(4):hover,
+.nav-list > li:nth-child(6):hover,
+.nav-list > li:nth-child(5):hover{
+  color: gray;
 }
 
 .nav-list > li:nth-child(4) i {
@@ -120,6 +129,10 @@
 
 #search-results.show-results{
   opacity: 1;
+}
+
+#search-results::-webkit-scrollbar {
+  display: none;
 }
 
 #search-results li {
