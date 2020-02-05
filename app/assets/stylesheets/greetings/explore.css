@@ -32,32 +32,17 @@
 
 .stacks-container .posts-stack .post-item{
   display: flex;
-  width: 33%;
+  width: auto;
   overflow: hidden;
-  margin: 15px;
+  margin: 15px 19px;
   position: relative;
   z-index: 1;
 }
 
 .stacks-container .posts-stack:last-child{
-  display: block;
-  margin: 0px;
-  margin-left: 15px;
-}
-
-.stacks-container .posts-stack:last-child .post-item{
-  display: inline-block;
-  width: 32%;
-  box-sizing: border-box;
-  margin: 20px 0px;
-}
-
-.stacks-container .posts-stack:last-child .post-item:nth-child(2) {
-  margin-left: 20px;
-}
-
-.stacks-container .posts-stack:last-child .post-item:last-child {
-  margin-left: 17px;
+  align-items: flex-start;
+  align-content: unset;
+  justify-content: center;
 }
 
 .stacks-container .posts-stack .post-item:hover{
