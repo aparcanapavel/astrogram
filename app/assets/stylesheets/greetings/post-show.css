@@ -91,7 +91,7 @@
 }
 .image-show-details .comment-item-preview .single-comment,
 .image-show-details .post-caption .single-comment{
-  vertical-align: middle;
+  vertical-align: top;
   font-weight: 100;
   line-height: 15px;
   padding: 1px 0px;

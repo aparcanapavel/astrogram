@@ -21,15 +21,23 @@ html[data-theme='dark']{
 body{
   background-color: var(--main-bg);
   color: var(--color);
+  transition: 0.3s;
+  will-change: background-color, color;
 }
 
 .nav-bar{
   background-color: var(--items-bg);
   border-bottom: 1px solid var(--items-border);
+  color: var(--color);
+}
+
+.nav-list li {
+  color: var(--color);
 }
 
 .profile-hr{
   background-color: var(--items-border);
+  transition: background-color 0.3s;
 }
 
 .single-post,
@@ -51,6 +59,7 @@ body{
 .image-options li:first-child,
 .image-show-details .post-author{
   border-bottom: 1px solid var(--items-border); 
+  transition: border-color 0.3s;
 }
 
 .image-options,
@@ -90,10 +99,12 @@ body{
 
 .edit-profile-container .edit-profile-details {
   border-left: 1px solid var(--items-border);
+  transition: border-color 0.3s;
 }
 
 .edit-profile-container nav ul li{
   border-left: 2px solid var(--items-border);
+  transition: border-color 0.3s;
 }
 
 .edit-profile-form input[type="text"],
@@ -113,10 +124,38 @@ body{
 }
 
 .comment-item-preview p:nth-child(2),
-.post-caption p:nth-child(2){
-  color: var(--comment-color);  
+.post-caption p:nth-child(2),
+.post-icons,
+.post-likes{
+  color: var(--comment-color);
+  transition: color 0.3s;
 }
 
 .demo{
   color: var(--enabled-blue)
+}
+
+.image-show-details .bottom-details,
+.image-options,
+.image-show-details #image-show-options{
+  transition: 0.3s;
+  will-change: background-color, border-color;
+}
+
+.edit-profile-form input[type="text"],
+.edit-profile-form input[type="submit"],
+.single-post,
+.nav-list > li:nth-child(2) input,
+#search-results li,
+#search-results,
+.edit-profile-container,
+#post-show-container,
+.signup-form-container .signup-form,
+.signup-form-container .optional-session-form,
+.session-form-container .session-form,
+.session-form-container .optional-session-form,
+.nav-list > li,
+.nav-bar{
+  transition: 0.3s;
+  will-change: background-color,border-color , color;
 }
