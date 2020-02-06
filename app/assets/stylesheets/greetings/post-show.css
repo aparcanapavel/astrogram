@@ -18,6 +18,8 @@
   max-height: 700px;
   object-fit: cover;
   vertical-align: middle;
+  width: inherit;
+  background-position: center;
 }
 
 .post-show-img i {
@@ -34,6 +36,8 @@
 
 .post-show-img img{
   object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 .image-show-details{
@@ -46,7 +50,6 @@
 
 .image-show-details .post-author{
   vertical-align: top;
-  border-bottom: 1px solid rgb(235, 235, 235);
 }
 
 .image-show-details #image-show-options{
@@ -54,7 +57,6 @@
   opacity: 0;
   margin-top: 7px;
   transition: 0.3s;
-  background-color: rgba(250, 249, 249, 0.288);
 }
 
 .image-show-details #image-show-options.show{
@@ -73,6 +75,7 @@
 
 .image-show-details .post-caption {
   display: block;
+  padding-top: 5px;
 }
 
 .image-show-details .post-caption p{
@@ -85,6 +88,7 @@
   overflow: auto;
   max-height: 550px;
   z-index: 0;
+  padding-top: 5px;
 }
 
 .image-show-details .comment-item-preview {

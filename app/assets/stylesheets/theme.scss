@@ -48,11 +48,13 @@ body{
 }
 
 .post-comments,
-.image-options li:first-child{
+.image-options li:first-child,
+.image-show-details .post-author{
   border-bottom: 1px solid var(--items-border); 
 }
 
-.image-options{
+.image-options,
+.image-show-details #image-show-options{
   background-color: var(--items-bg);
   border: 1px solid var(--items-border);
 }
