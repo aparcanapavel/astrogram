@@ -56,11 +56,11 @@ class ExplorePage extends React.Component{
     }
     //need to find a way to put unique keys per ul outside the loop
     if (stacks.length === 0) {
-      stacks.push(<ul key={ulKey + 1} className="posts-stack">
+      stacks.push(<ul key={ulKey + 2} className="posts-stack">
         {row}
       </ul>)
     } else if (row.length > 0) {
-      stacks.push(<ul key={ulKey + 1} className="posts-stack">
+      stacks.push(<ul key={ulKey + 2} className="posts-stack">
         {row}
       </ul>)
     }
