@@ -33,8 +33,8 @@ class UserShow extends React.Component{
       return <i id="loading-logo" className="fab fa-instagram"></i>
     }
     const { user, posts } = this.props;
-    const followers = user.followeeIds.length;
-    const following = user.followerIds.length;
+    const followers = user.followerIds.length;
+    const following = user.followeeIds.length;
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
 
     posts.reverse();
