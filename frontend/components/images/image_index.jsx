@@ -43,7 +43,7 @@ export default class ImageIndex extends React.Component {
         currentUser={currentUser}
         toggleOptions={() => this.showImageOptions(img.id)}
         />
-      } else if (currentUser.followerIds.includes(img.authorId) || currentUser.id === img.authorId) {
+      } else if (currentUser.followeeIds.includes(img.authorId) || currentUser.id === img.authorId) {
         return <ImageIndexItemContainer
           removeImage={() => this.removeImage(img.id)}
           optionsButton={optionsButton}

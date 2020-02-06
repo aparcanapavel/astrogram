@@ -122,7 +122,7 @@ class ImageIndexItem extends React.Component {
     let followButton;
     let imageOpt;
 
-    if(imgAuthor.followeeIds.includes(currentUser.id)){
+    if(imgAuthor.followerIds.includes(currentUser.id)){
 
       followButton = <li className="follow-button" onClick={() => this.handleFollow(imgAuthor.id)}>Following</li>;
 

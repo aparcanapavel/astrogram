@@ -23,12 +23,13 @@ class OtherUserShow extends React.Component {
     const { userId } = this.props;
 
     this.props.fetchUser(userId).then(() => this.props.fetchImages(this.props.user.id)).then(() => {
+      console.log(this.props.user.followerIds.includes(this.props.currentUserId))
 
       this.setState({ 
         loading: false, 
         numFollowers: this.props.user.followeeIds.length,
         numFollowees: this.props.user.followerIds.length,
-        followed: this.props.user.followeeIds.includes(this.props.currentUserId),
+        followed: this.props.user.followerIds.includes(this.props.currentUserId),
         posts: this.props.posts
       });
     })

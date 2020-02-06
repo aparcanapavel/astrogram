@@ -28,6 +28,10 @@ body{
   border-bottom: 1px solid var(--items-border);
 }
 
+.profile-hr{
+  background-color: var(--items-border);
+}
+
 .single-post,
 .nav-list > li:nth-child(2) input,
 #search-results li,

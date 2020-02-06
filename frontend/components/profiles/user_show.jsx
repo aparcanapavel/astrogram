@@ -95,7 +95,7 @@ class UserShow extends React.Component{
           <strong>{user.fullName}</strong>
         </div>
       </div>
-      <hr/>
+      <hr className="profile-hr"/>
 
       {/* outter container, user flex: column */}
       <div className="user-posts-container">
