@@ -102,8 +102,7 @@ class ImageShow extends React.Component {
 
       if ((currentUser.id === comment.authorId) || (image.authorId === currentUser.id)) {
         return <li className="comment-item-preview" key={comment.id}>
-          <p>{commentAuthor}</p>
-          <p>{comment.body}</p>
+          <p><strong>{commentAuthor}</strong>{comment.body}</p>
           <i onClick={() => this.props.deleteComment(comment.id)} className="far fa-trash-alt"></i>
         </li>
 
@@ -173,8 +172,7 @@ class ImageShow extends React.Component {
         </div>
 
         <div className="post-caption">
-          <p>{imageAuthor.username}</p>
-          <p>{image.caption}</p>
+          <p><strong>{imageAuthor.username}</strong> {image.caption}</p>
         </div>
 
         <ul className="post-comments">

@@ -202,7 +202,8 @@
 }
 
 .comment-item-preview p{
-  display: inline-block;
+  display: block;
+  font-weight: 100;
 }
 
 .comment-item-preview p:nth-child(2){

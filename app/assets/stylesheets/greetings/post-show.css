@@ -91,10 +91,14 @@
   padding-top: 5px;
 }
 
-.image-show-details .comment-item-preview {
+/* .image-show-details .comment-item-preview {
   display: block;
   padding: 1px 0px;
-}
-.image-show-details .comment-item-preview p{
+} */
+/* .image-show-details .comment-item-preview p{
   vertical-align: middle;
-}
+} */
+
+/* .image-show-details .comment-item-preview p:nth-child(2){
+  margin-top: -3px;
+} */
