@@ -121,8 +121,8 @@ class LoggedIn extends React.Component {
     }.bind(this); 
     return <nav className="nav-bar">
       <ul className="nav-list">
-        <li onClick={this.toHome}><i className="fas fa-satellite"></i><h1 className='astrogram-nav'>Astrogram</h1></li>
-        <li>
+        <li id="logo-icons" onClick={this.toHome}><i className="fas fa-satellite"></i><h1 className='astrogram-nav'>Astrogram</h1></li>
+        <li id="search-desktop">
           <div className="nav-search">
             <label htmlFor="search-bar-field" id="escape" onClick={this.escapeResults}>x</label>
             <input
@@ -138,10 +138,11 @@ class LoggedIn extends React.Component {
             </ul>
           </div>
         </li>
-        <li onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
-        <li><Link to="/explore" className="far fa-compass"></Link></li>
-        <li><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
-        <li><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
+        <li id="post-icon" onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
+        <li id="explore-icon"><Link to="/explore" className="far fa-compass"></Link></li>
+        <li id="theme-icon"><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
+        <li id="profile-icon"><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
+        <li id="search-icon"><i class="fas fa-search"></i></li>
       </ul>
       <Modal />
     </nav>
