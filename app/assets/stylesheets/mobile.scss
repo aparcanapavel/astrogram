@@ -233,10 +233,37 @@
         font-size: 15px;
       }
     }
-  }
+  } // usser show page
 
   div.edit-profile-container{
     width: 100%;
+    nav{
+      width: 100%;
+    }
+    div.edit-profile-details{
+      width: 100%
+    }
+    ul.edit-profile-menu{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      border-bottom: 1px solid gray;
+      li{
+        border-left: 0px;
+        width: 100%;
+        text-align: center;
+        &:last-child{
+          border-left: 2px;
+        }
+      }
+    }
+
+    form.edit-profile-form{
+      label{
+        width: 77px;
+        margin-right: 5px;
+      }
+    }
   }
 }
 
