@@ -136,7 +136,11 @@ body{
 .comment-item-preview p:nth-child(2),
 .post-caption p:nth-child(2),
 .post-icons,
-.post-likes{
+.post-likes,
+// .mobile-nav #menu-toggle-icon,
+.astrogram-nav,
+.nav-top i,
+.mobile-nav i{
   color: var(--comment-color);
   transition: color 0.3s;
 }
