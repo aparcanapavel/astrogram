@@ -2,6 +2,7 @@
   .mobile-nav{
     position: relative;
     width: 100%;
+    min-width: 310px;
     #menu-toggle-icon{
       display: block;
       position: absolute;
@@ -39,7 +40,7 @@
       font-size: 35px;
       vertical-align: middle;
       cursor: pointer;
-      opacity: 0; //revert to 1
+      opacity: 1; 
       transition: opacity 0.3;
       pointer-events: visible;
     }
@@ -54,7 +55,7 @@
       box-sizing: border-box;
       padding-right: 10px;
       cursor: pointer;
-      opacity: 0; //revert to 1
+      opacity: 1;
       transition: opacity 0.3;
       pointer-events: visible;
     }
@@ -67,7 +68,7 @@
   #search-mobile{
     align-self: center;
     position: absolute;
-    opacity: 1; // revert to 0
+    opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
     input{
@@ -143,5 +144,15 @@
   div.show-menu{
     pointer-events: visible;
     transform: translateX(0px);
+  }
+}
+
+
+@media all and (max-width: 400px){
+  #feed{
+    margin-top: 90px;
+    .single-post{
+      margin:0px;
+    }
   }
 }

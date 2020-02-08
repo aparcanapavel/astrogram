@@ -42,7 +42,7 @@ export default class Greeting extends React.Component {
         <div className="top-bar">
           <LoggedInContainer mobile={this.state.mobile}/>
         </div>
-        <div className="feed">
+        <div className="feed" id="feed">
           <Switch>
             <Route exact path={`/users/${this.props.currentUser.id}/profile`} 
             render={props => (
