@@ -145,7 +145,7 @@ class LoggedIn extends React.Component {
           <i className="fas fa-satellite" onClick={this.toHome}></i >
           <h1 className='astrogram-nav' onClick={this.toHome}>Astrogram</h1>
 
-          <div id="search-mobile" style={{ display: 'none' }}>
+          <div id="search-mobile">
             <label htmlFor="search-bar-field" id="escape" onClick={this.escapeResults}>x</label>
             <input
               id="search-bar-field"

@@ -9,6 +9,10 @@
       padding: 10px;
       font-size: 23px;
       cursor: pointer;
+      transition: color 0.3s;
+      &:hover{
+        color: gray;
+      }
     }
     #home-icon{
       display: block;
@@ -17,7 +21,11 @@
       padding: 10px;
       font-size: 23px;
       cursor: pointer;
+      transition: color 0.3s;
       right: 5px;
+      &:hover{
+        color: gray;
+      }
     }
   }
 
@@ -31,6 +39,7 @@
       font-size: 35px;
       vertical-align: middle;
       cursor: pointer;
+      opacity: 0;
     }
     i{
       font-size: 25px;
@@ -39,7 +48,55 @@
       box-sizing: border-box;
       padding-right: 10px;
       cursor: pointer;
+      opacity: 0;
     }
+  }
+
+  #search-mobile{
+    align-self: center;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    input{
+      width: 200px;
+      border-radius: 3px;
+      padding: 5px;
+      border: 1px solid rgb(104, 104, 104);
+      cursor: pointer;
+      &::placeholder{
+        text-align: center;
+      }
+      &:focus{
+        outline: none;
+        background-color: rgba(227, 227, 227, 0.144);
+      }
+    }
+    label{
+      position: absolute;
+      background-color: rgb(218, 218, 218);
+      color: white;
+      padding: 0px 4px;
+      font-family: sans-serif;
+      border-radius: 20px;
+      right: 3px;
+      font-size: 12px;
+      top: 4.4px;
+      display: none;
+      opacity: 1;
+      transition: opacity 0.3s;
+      border: 1px solid gray;
+      z-index: 5;
+      cursor: pointer;
+    }
+    label.show-button {
+      opacity: 1;
+    }
+  }
+
+  div.show-search{
+    opacity: 1;
+    pointer-events: visible;
   }
 
   div.side-menu{
