@@ -126,13 +126,17 @@
 
 .top-bar{
   display: block;
-  position: relative;
-  padding-bottom: 100px;
+  margin-bottom: 100px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+  height: 70px;
 }
 
+
 .feed{
-  padding-top: 0px;
-  /* position: relative; */
+  margin-top: 120px;
 }
 
 #loading-logo{

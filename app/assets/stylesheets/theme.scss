@@ -25,14 +25,23 @@ body{
   will-change: background-color, color;
 }
 
-.nav-bar{
+.top-bar{
   background-color: var(--items-bg);
   border-bottom: 1px solid var(--items-border);
-  color: var(--color);
 }
 
-.nav-list li {
+.nav-logo i {
+  border-right: 1px solid var(--items-border);
   color: var(--color);
+  transition: 0.3s;
+  will-change: color, border-right;
+}
+
+.nav-icons i,
+.nav-icons a,
+.nav-logo h1 {
+  color: var(--color);
+  transition: color 0.3s;
 }
 
 .profile-hr{
@@ -41,7 +50,7 @@ body{
 }
 
 .single-post,
-.nav-list > li:nth-child(2) input,
+.nav-search input,
 #search-results li,
 #search-results,
 .edit-profile-container,
@@ -49,7 +58,8 @@ body{
 .signup-form-container .signup-form,
 .signup-form-container .optional-session-form,
 .session-form-container .session-form,
-.session-form-container .optional-session-form{
+.session-form-container .optional-session-form,
+#search-bar-field{
   border: 1px solid var(--items-border);
   background-color: var(--items-bg);
   color: var(--color);
@@ -97,7 +107,7 @@ body{
 }
 
 
-.edit-profile-container .edit-profile-details {
+.edit-profile-container .edit-profile-details{
   border-left: 1px solid var(--items-border);
   transition: border-color 0.3s;
 }
@@ -137,7 +147,8 @@ body{
 
 .image-show-details .bottom-details,
 .image-options,
-.image-show-details #image-show-options{
+.image-show-details #image-show-options,
+.top-bar{
   transition: 0.3s;
   will-change: background-color, border-color;
 }
@@ -145,7 +156,7 @@ body{
 .edit-profile-form input[type="text"],
 .edit-profile-form input[type="submit"],
 .single-post,
-.nav-list > li:nth-child(2) input,
+.nav-search input,
 #search-results li,
 #search-results,
 .edit-profile-container,
@@ -153,9 +164,17 @@ body{
 .signup-form-container .signup-form,
 .signup-form-container .optional-session-form,
 .session-form-container .session-form,
-.session-form-container .optional-session-form,
-.nav-list > li,
-.nav-bar{
+.session-form-container .optional-session-form{
   transition: 0.3s;
-  will-change: background-color,border-color , color;
+  will-change: background-color, border-color, color;
+}
+
+@media all and (max-width: 800px){
+  .side-menu{
+    .nav-icons{
+      border-right: 1px solid var(--items-border);
+      border-bottom: 1px solid var(--items-border);
+      background-color: var(--items-bg);
+    }
+  }
 }

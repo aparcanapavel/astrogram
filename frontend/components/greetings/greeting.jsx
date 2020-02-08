@@ -13,28 +13,79 @@ import ExplorePageContainer from '../explore/explore_page_container';
 export default class Greeting extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      mobile: null
+    }
+  }
+
+  componentDidMount(){
+    let width = window.innerWidth;
+    if (width < 800) {
+      this.setState({ mobile: true });
+    } else if (width >= 800) {
+      this.setState({ mobile: false })
+    }
   }
 
   render() {
+    window.addEventListener('resize', (e) => {
+      let width = e.currentTarget.innerWidth;
+      if (width < 800 && this.state.mobile !== true) {
+        this.setState({ mobile: true });
+      } else if (width >= 800 && this.state.mobile !== false) {
+        this.setState({ mobile: false })
+      }
+    });
     const display = this.props.currentUser ? (
       //render or redirect to feed index. for now, it'll display the current username
       <div>
-        <div className="top-bar"><LoggedInContainer /></div>
-        <Switch>
-          <Route exact path={`/users/${this.props.currentUser.id}/profile`} component={UserShowContainer} />
+        <div className="top-bar">
+          <LoggedInContainer mobile={this.state.mobile}/>
+        </div>
+        <div className="feed">
+          <Switch>
+            <Route exact path={`/users/${this.props.currentUser.id}/profile`} 
+            render={props => (
+              <UserShowContainer
+                {...props}
+                mobile={this.state.mobile}
+              />
+            )} />
 
-          <Route path="/users/:id/profile" component={OtherUserShowContainer}/>
+            <Route path="/users/:id/profile"
+              render={props => (
+                <OtherUserShowContainer
+                  {...props}
+                  mobile={this.state.mobile}
+                />
+              )}
+            />
 
-          <Route path="/account/edit" component={EditUserContainer} />
+            <Route path="/account/edit"
+              render={props => (
+                <EditUserContainer
+                  {...props}
+                  mobile={this.state.mobile}
+                />
+              )}
+            />
 
-          <Route path="/feed/:id" component={ImageShowContainer} />
+            <Route path="/feed/:id" 
+              render={props => (
+                <ImageShowContainer
+                  {...props}
+                  mobile={this.state.mobile}
+                />
+              )}
+            />
 
-          <Route path="/explore" component={ExplorePageContainer} />
-          
-          <Route path="/">
-            <div className="feed"><ImageIndexContainer /></div>
-          </Route >
-        </Switch>
+            <Route path="/explore" component={ExplorePageContainer} />
+            
+            <Route path="/">
+              <ImageIndexContainer />
+            </Route >
+          </Switch>
+        </div>
       </div>
     ) : (
       <section className="noUserWelcomeContainer">

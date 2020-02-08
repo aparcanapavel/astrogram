@@ -40,7 +40,6 @@ class LoggedIn extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
-    
   }
 
   doesMatch(user, search){
@@ -112,18 +111,26 @@ class LoggedIn extends React.Component {
     }
   }
 
-  render () {  
+  toggleMenu(e){
+    console.log("e", e);
+  }
+
+  render () {
     document.onkeydown = function (event) {
       event = event || window.event;
       if (event.keyCode == 27) {
         this.escapeResults();
       }
     }.bind(this); 
-    return <nav className="nav-bar">
-      <ul className="nav-list">
-        <li id="logo-icons" onClick={this.toHome}><i className="fas fa-satellite"></i><h1 className='astrogram-nav'>Astrogram</h1></li>
-        <li id="search-desktop">
-          <div className="nav-search">
+
+    const navRender = this.props.mobile ? (
+      <div className="mobile-nav">
+        <i className="fas fa-bars" onClick={this.toggleMenu} id="menu-toggle-icon"></i>
+        <div className="nav-top">
+          <i className="fas fa-satellite" onClick={this.toHome}></i >
+          <h1 className='astrogram-nav' onClick={this.toHome}>Astrogram</h1>
+
+          <div id="search-mobile" style={{ display: 'none' }}>
             <label htmlFor="search-bar-field" id="escape" onClick={this.escapeResults}>x</label>
             <input
               id="search-bar-field"
@@ -132,20 +139,58 @@ class LoggedIn extends React.Component {
               onClick={this.startSearch}
               onChange={this.updateField("search")}
               value={this.state.search}
+              autoComplete="off"
             />
             <ul id="search-results">
-              {this.state.results ? this.state.results : <i id="loading-search-logo" className="fab fa-instagram"></i>}
+              {this.state.results}
             </ul>
           </div>
-        </li>
-        <li id="post-icon" onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
-        <li id="explore-icon"><Link to="/explore" className="far fa-compass"></Link></li>
-        <li id="theme-icon"><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
-        <li id="profile-icon"><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
-        <li id="search-icon"><i class="fas fa-search"></i></li>
-      </ul>
-      <Modal />
-    </nav>
+        </div >
+
+        <div className="side-menu" onClick={this.toggleMenu}>
+          <ul className="nav-icons" onClick={e => e.stopPropagation()}>
+            <li id="post-icon" onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
+            <li id="search-icon"><i className="fas fa-search"></i></li>
+            <li id="explore-icon"><Link to="/explore" className="far fa-compass"></Link></li>
+            <li id="theme-icon"><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
+            <li id="profile-icon"><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
+          </ul>
+        </div>
+        <Modal />
+      </div>
+    ) : (
+      <nav className="nav-bar">
+        <div className="nav-logo">
+          <i className="fas fa-satellite" onClick = {this.toHome}></i >
+          <h1 className='astrogram-nav' onClick={this.toHome}>Astrogram</h1>
+        </div >
+
+        <div id="search-desktop" className="nav-search">
+          <label htmlFor="search-bar-field" id="escape" onClick={this.escapeResults}>x</label>
+          <input
+            id="search-bar-field"
+            type="text"
+            placeholder="search users"
+            onClick={this.startSearch}
+            onChange={this.updateField("search")}
+            value={this.state.search}
+            autoComplete="off"
+          />
+          <ul id="search-results">
+            {this.state.results}
+          </ul>
+        </div>
+
+        <ul className="nav-icons">
+          <li id="post-icon" onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
+          <li id="explore-icon"><Link to="/explore" className="far fa-compass"></Link></li>
+          <li id="theme-icon"><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
+          <li id="profile-icon"><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
+        </ul>
+        <Modal />
+      </nav >
+    )
+    return navRender;
   }
 }
 
