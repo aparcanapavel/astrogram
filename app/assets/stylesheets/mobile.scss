@@ -161,6 +161,10 @@
       height: auto;
     }
   }
+
+  section.user-profile-container{
+    width: 100%;
+  }
 }
 
 
@@ -169,6 +173,12 @@
     margin-top: 90px;
     .single-post{
       margin:0px;
+    }
+  }
+  section.post-form-container{
+    width: 100%;
+    div.post-form-modal{
+      width: 95vw;
     }
   }
 }
