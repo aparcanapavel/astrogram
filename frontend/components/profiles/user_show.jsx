@@ -96,6 +96,7 @@ class UserShow extends React.Component{
       <section className="user-profile-container">
         <div className="profile-details">          
           <img src={src} alt="" />
+          
           <div className="detail-top">
             <h2>{user.username}</h2>
             <ul className="detail-middle">

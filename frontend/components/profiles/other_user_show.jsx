@@ -75,6 +75,22 @@ class OtherUserShow extends React.Component {
     
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
 
+    let mobilePosts = null;
+
+    if (this.props.mobile) {
+      mobilePosts = user.authoredImageIds.length > 1 ? (
+        <li>
+          <strong>{user.authoredImageIds.length}</strong>
+          <p>posts</p>
+        </li>
+      ) : (
+          <li>
+            <strong>{user.authoredImageIds.length}</strong>
+            <p>post</p>
+          </li>
+        )
+    }
+
     let stacks = [];
     let row = [];
     for (let i = 0; i < posts.length; i++) {
@@ -126,7 +142,41 @@ class OtherUserShow extends React.Component {
     }
 
     const src = user.imageUrl;
-    return <section className="user-profile-container">
+    return this.props.mobile ? (
+      <section className="user-profile-container">
+        <div className="profile-details">
+          <img src={src} alt="" />
+
+          <div className="detail-top">
+            <h2>{user.username}</h2>
+            <ul className="detail-middle">
+              {mobilePosts}
+              <li>
+                <strong>{this.state.numFollowers}</strong>
+                <p>followers</p>
+              </li>
+              <li>
+                <strong>{this.state.numFollowees}</strong>
+                <p>following</p>
+              </li>
+            </ul>
+            
+            {followButton}
+            <i className="fas fa-ellipsis-h" onClick={() => this.props.openModal('gearOptions')}></i>
+          </div>
+
+          <div className="detail-bottom">
+            <strong>{user.fullName}</strong>
+          </div>
+        </div>
+        <hr />
+
+        <div className="user-posts-container">
+          {stacks}
+        </div>
+      </section>
+    ) : (
+    <section className="user-profile-container">
       <div className="profile-details">
         <img src={src} alt="" />
         <div className="detail-top">
@@ -151,6 +201,7 @@ class OtherUserShow extends React.Component {
         {stacks}
       </div>
     </section>
+    )
   }
 }
 
