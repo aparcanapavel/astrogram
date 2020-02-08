@@ -163,8 +163,8 @@ class LoggedIn extends React.Component {
 
     const navRender = this.props.mobile ? (
       <div className="mobile-nav">
-        <i className="fas fa-bars" onClick={this.toggleMenu} id="menu-toggle-icon"></i>
         <i className="fas fa-home" onClick={this.toHome} id="home-icon"></i>
+        <i className="fas fa-bars" onClick={this.toggleMenu} id="menu-toggle-icon"></i>
         <div className="nav-top" id="nav-top">
           <i className="fas fa-satellite" onClick={this.toHome}></i >
           <h1 className='astrogram-nav' onClick={this.toHome}>Astrogram</h1>

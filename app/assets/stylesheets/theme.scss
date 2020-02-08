@@ -172,7 +172,7 @@ body{
 @media all and (max-width: 800px){
   .side-menu{
     .nav-icons{
-      border-right: 1px solid var(--items-border);
+      border-left: 1px solid var(--items-border);
       border-bottom: 1px solid var(--items-border);
       background-color: var(--items-bg);
     }

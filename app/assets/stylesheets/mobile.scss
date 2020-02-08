@@ -11,6 +11,7 @@
       font-size: 23px;
       cursor: pointer;
       transition: color 0.3s;
+      right: 5px;
       &:hover{
         color: gray;
       }
@@ -23,7 +24,6 @@
       font-size: 23px;
       cursor: pointer;
       transition: color 0.3s;
-      right: 5px;
       &:hover{
         color: gray;
       }
@@ -117,16 +117,17 @@
     width: 100%;
     height: 100%;
     top: 0px;
-    left: 0px;
+    right: 0px;
     pointer-events: none;
-    transform: translateX(-100px);
+    transform: translateX(80px);
     transition: transform 0.3s;
+    overflow: hidden;
     .nav-icons{
-      position: relative;
+      position: absolute;
       top: 51px;
-      display: flex;
-      flex-direction: column;
-      width: max-content;
+      display: block;
+      right: 0px;
+      height: 100%;
     }
     li{
       margin: 0px;
@@ -145,10 +146,25 @@
     pointer-events: visible;
     transform: translateX(0px);
   }
+
+  section.explore-container{
+    width: 100%;
+    ul.posts-stack{
+      li.post-item{
+        margin: 0px;
+        width: 33.3%;
+        height: 33vw;
+      }
+    }
+    div.profile-single-image{
+      width: auto;
+      height: auto;
+    }
+  }
 }
 
 
-@media all and (max-width: 400px){
+@media all and (max-width: 550px){
   #feed{
     margin-top: 90px;
     .single-post{
