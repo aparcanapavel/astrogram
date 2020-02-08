@@ -37,6 +37,22 @@ class UserShow extends React.Component{
     const following = user.followeeIds.length;
     const postNums = user.authoredImageIds.length > 1 ? <p><strong>{user.authoredImageIds.length}</strong> posts</p> : <p><strong>{user.authoredImageIds.length}</strong> post</p>
 
+    let mobilePosts = null;
+    
+    if(this.props.mobile) {
+      mobilePosts = user.authoredImageIds.length > 1 ? (
+        <li>
+          <strong>{user.authoredImageIds.length}</strong>
+          <p>posts</p>
+        </li>
+      ) : (
+          <li>
+            <strong>{user.authoredImageIds.length}</strong>
+            <p>post</p>
+          </li>
+        )
+    }
+
     posts.reverse();
     
     let ulKey = 1;
@@ -76,7 +92,35 @@ class UserShow extends React.Component{
     }
 
     const src = user.imageUrl;
-    return <section className="user-profile-container">
+    return this.props.mobile ? (
+      <section className="user-profile-container">
+        <div className="profile-details">          
+          <img src={src} alt="" />
+          <div className="detail-top">
+            <h2>{user.username}</h2>
+            <ul className="detail-middle">
+              {mobilePosts}
+              <li><strong>{followers}</strong><p>followers</p></li>
+              <li><strong>{following}</strong><p>following</p></li>
+            </ul>
+            <Link to="/account/edit">Edit Profile</Link>
+            <i className="fas fa-cog" onClick={() => this.props.openModal('gearOptions')}></i>
+          </div>
+
+          <div className="detail-bottom">
+            <strong>{user.fullName}</strong>
+          </div>
+
+        </div>
+        <hr className="profile-hr" />
+
+        {/* outter container, user flex: column */}
+        <div className="user-posts-container">
+          {stacks}
+        </div>
+      </section>
+    ) : (
+    <section className="user-profile-container">
       <div className="profile-details">
         <img src={src} alt=""/>
         <div className="detail-top">
@@ -102,6 +146,7 @@ class UserShow extends React.Component{
         {stacks}
       </div>
     </section>
+    )
   }
 }
 
