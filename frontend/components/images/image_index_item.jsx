@@ -81,15 +81,13 @@ class ImageIndexItem extends React.Component {
 
       if ((currentUser.id === comment.authorId) || (img.authorId === currentUser.id)) {
         return <li className="comment-item-preview" key={comment.id}>
-          <p>{commentAuthor}</p>
-          <p>{comment.body}</p>
+          <p><strong>{commentAuthor}</strong>{comment.body}</p>
           <i onClick={() => this.props.deleteComment(comment.id)} className="far fa-trash-alt"></i>
         </li>
 
       } else {
         return <li className="comment-item-preview" key={comment.id}>
-          <p>{commentAuthor}</p>
-          <p>{comment.body}</p>
+          <p><strong>{commentAuthor}</strong>{comment.body}</p>
         </li>
       }
     });
@@ -114,10 +112,14 @@ class ImageIndexItem extends React.Component {
     }
 
 
-    const numComments = img.commentIds.length > 2 ? <p className="num-comments" onClick={() => this.toImage(img.id)}>View all {comments.length} comments</p> : null
+    let numComments = img.commentIds.length > 2 ? <p className="num-comments" onClick={() => this.toImage(img.id)}>View all {comments.length} comments</p> : null
 
     if(comments.length > 2){
-      comment_list = comment_list.reverse().slice(0,2).reverse();
+      if(!this.props.mobile){
+        comment_list = comment_list.reverse().slice(0,2).reverse();
+      } else {
+        numComments = null;
+      }
     }
     let followButton;
     let imageOpt;
@@ -158,8 +160,7 @@ class ImageIndexItem extends React.Component {
       {postLikes}
 
       <div className="post-caption">
-        <p>{imgAuthor.username}</p>
-        <p>{img.caption}</p>
+        <p><strong>{imgAuthor.username}</strong>{img.caption}</p>
         {numComments}
       </div>
 

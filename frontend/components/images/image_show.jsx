@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
+import ImageIndexItemContainer from './image_index_item_container';
 
 class ImageShow extends React.Component {
   constructor(props) {
@@ -87,7 +88,8 @@ class ImageShow extends React.Component {
   }
 
   toggleOptions() {
-    document.getElementById("image-show-options").classList.toggle("show");
+    const imageOptions = document.querySelector(".image-options");
+    imageOptions.classList.toggle("show");
   }
 
   render() {
@@ -159,7 +161,22 @@ class ImageShow extends React.Component {
     
     const src = imageAuthor.imageUrl;
 
-    return <section id="post-show-container">
+    return this.props.mobile ? (
+      <section id="image-show-mobile">
+        <ImageIndexItemContainer
+          removeImage={() => this.removeImage(image.id)}
+          optionsButton={optionsButton}
+          imgAuthor={imageAuthor}
+          img={image}
+          key={image.id}
+          users={this.props.users}
+          currentUser={currentUser}
+          toggleOptions={this.toggleOptions}
+          mobile={true}
+        />
+      </section>
+    ) : (
+    <section id="post-show-container">
       <div className="post-show-img" onDoubleClick={() => this.handleLike(image.id)}>
         <i className={this.likeIcon} id={`heartIcon-${image.id}`}></i>
         <img src={image.imageUrl} alt="" />
@@ -203,6 +220,7 @@ class ImageShow extends React.Component {
         
       </div>   
     </section>
+    )
   }
 }
 

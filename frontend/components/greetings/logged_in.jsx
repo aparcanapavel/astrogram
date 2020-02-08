@@ -68,6 +68,7 @@ class LoggedIn extends React.Component {
       resultsUL.style.display = "none";
       escape.style.display = "none";
       document.getElementById("search-bar-field").disabled = false;
+      this.toggleSearch();
     }, 300);
     return this.setState({ search: "" });
   }

@@ -31,7 +31,7 @@
   position: relative;
   width: 100%;
   touch-action: manipulation;
-  z-index: 10;
+  z-index: 9;
   overflow: hidden;
 }
 
@@ -158,28 +158,32 @@
 }
 
 .post-likes,
-.post-caption p:first-child,
-.comment-item-preview p:first-child{
+.post-caption p strong,
+.comment-item-preview p strong{
   font-weight: 700;
   font-size: 14px;
-  margin-left: 10px;
+  margin-right: 5px;
 }
 
-.post-caption p{
+.post-likes{
+  padding-left: 10px;
+}
+
+.post-caption p,
+.comment-item-preview p{
   display: inline-block;
   font-size: 14px;
+  padding: 0 10px;
 }
 
-.post-caption p:first-child,
-.comment-item-preview p:first-child,
 .comment-item-preview:hover i,
 .new-comment input{
   cursor: pointer;
 }
 
-.post-caption p:nth-child(2){
+/* .post-caption p:nth-child(2){
   margin-left: 10px;
-}
+} */
 
 .post-caption .num-comments{
   font-weight: 700;
@@ -206,11 +210,11 @@
   font-weight: 100;
 }
 
-.comment-item-preview p:nth-child(2){
+/* .comment-item-preview p:nth-child(2){
   margin-left: 5px;
   font-size: 14px; 
   font-family: 'Noto Sans JP', sans-serif;
-}
+} */
 
 .comment-item-preview i{
   display: none;
@@ -222,6 +226,7 @@
   margin-right: 10px;
   font-size: 12px;
   padding: 3px;
+  margin-top: -20px;
 }
 
 .new-comment {
@@ -269,5 +274,9 @@
   float: right;
   font-weight: 600;
   background-color: transparent;
+}
+
+.post-comments li {
+  padding-right: 10px;
 }
 
