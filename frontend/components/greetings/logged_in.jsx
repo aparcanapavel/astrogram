@@ -11,7 +11,8 @@ class LoggedIn extends React.Component {
       search: "",
       ready: false,
       results: null,
-      showMenu: false
+      showMenu: false,
+      showSearch: false
     }
     this.toHome = this.toHome.bind(this);
     this.startSearch = this.startSearch.bind(this);
@@ -20,6 +21,7 @@ class LoggedIn extends React.Component {
     this.escapeResults = this.escapeResults.bind(this);
     this.toUser = this.toUser.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.toggleSearch = this.toggleSearch.bind(this);
   }
 
   startSearch() {
@@ -129,6 +131,28 @@ class LoggedIn extends React.Component {
     }
   }
 
+  toggleSearch() {
+    const navParent = document.getElementById("nav-top");
+    const searchCont = document.getElementById("search-mobile");
+    const astroHeader = navParent.children[1];
+    const astroLogo = navParent.children[0];
+    if(this.state.showSearch === false){
+      setTimeout(() => {
+        this.setState({ showSearch: true });
+      }, 300);
+      searchCont.classList.add("show-search");
+      astroHeader.classList.add("hide-top");
+      astroLogo.classList.add("hide-top");
+    } else {
+      setTimeout(() => {
+        this.setState({ showSearch: false });
+      }, 300);
+      searchCont.classList.remove("show-search");
+      astroHeader.classList.remove("hide-top");
+      astroLogo.classList.remove("hide-top");
+    }
+  }
+
   render () {
     document.onkeydown = function (event) {
       event = event || window.event;
@@ -141,7 +165,7 @@ class LoggedIn extends React.Component {
       <div className="mobile-nav">
         <i className="fas fa-bars" onClick={this.toggleMenu} id="menu-toggle-icon"></i>
         <i className="fas fa-home" onClick={this.toHome} id="home-icon"></i>
-        <div className="nav-top">
+        <div className="nav-top" id="nav-top">
           <i className="fas fa-satellite" onClick={this.toHome}></i >
           <h1 className='astrogram-nav' onClick={this.toHome}>Astrogram</h1>
 
@@ -156,7 +180,10 @@ class LoggedIn extends React.Component {
               value={this.state.search}
               autoComplete="off"
             />
-            <ul id="search-results">
+            <ul id="search-results" onClick={e => {
+              e.stopPropagation()
+              this.toggleSearch();
+            }}>
               {this.state.results}
             </ul>
           </div>
@@ -168,7 +195,7 @@ class LoggedIn extends React.Component {
             this.toggleMenu();
           }}>
             <li id="post-icon" onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
-            <li id="search-icon"><i className="fas fa-search"></i></li>
+            <li id="search-icon" onClick={this.toggleSearch}><i className="fas fa-search"></i></li>
             <li id="explore-icon"><Link to="/explore" className="far fa-compass"></Link></li>
             <li id="theme-icon"><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
             <li id="profile-icon"><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
