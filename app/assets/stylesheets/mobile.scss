@@ -301,8 +301,6 @@
       position: relative;
       padding: 40px 50px;
       border-radius: 5px;
-      // border: 1px solid gray;
-      // background-color: white;
       width: fit-content;
       margin: 0 auto;
       top: 16%;
@@ -322,9 +320,15 @@
           padding-bottom: 6px;
           margin-top: 6px;
           margin-bottom: 6px;
+          &:active{
+            background-color: rgba(1, 123, 216, 0.954);
+          }
         }
         &:last-child{
           font-weight: 600;
+          &:active{
+            color: rgba(1, 123, 216, 0.954);
+          }
         }
       }
       p{
@@ -337,6 +341,21 @@
         color: gray;
         text-align: center;
       }
+    }
+  }
+
+  section.session-form-container{
+    div.session-form{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    div.optional-session-form{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    div.signup-form{
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 }
