@@ -10,6 +10,15 @@
       font-size: 23px;
       cursor: pointer;
     }
+    #home-icon{
+      display: block;
+      position: absolute;
+      margin: 0px 5px 5px 15px;
+      padding: 10px;
+      font-size: 23px;
+      cursor: pointer;
+      right: 5px;
+    }
   }
 
   .nav-top{
@@ -33,13 +42,16 @@
     }
   }
 
-  .side-menu{
+  div.side-menu{
     position: fixed;
     width: 100%;
     height: 100%;
     // background-color: rgba(128, 128, 128, 0.24);
     top: 0px;
     left: 0px;
+    pointer-events: none;
+    transform: translateX(-100px);
+    transition: transform 0.3s;
     .nav-icons{
       position: relative;
       top: 51px;
@@ -49,14 +61,20 @@
       width: max-content;
     }
     li{
+      margin: 0px;
       a{
-        padding: 20px 15px;
+        padding: 20px;
         &:hover{ color: gray }
       }
       i{
-        padding: 20px 15px;
+        padding: 20px;
         &:hover{ color: gray }
       }
     }
+  }
+
+  div.show-menu{
+    pointer-events: visible;
+    transform: translateX(0px);
   }
 }

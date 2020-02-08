@@ -10,7 +10,8 @@ class LoggedIn extends React.Component {
     this.state = {
       search: "",
       ready: false,
-      results: null
+      results: null,
+      showMenu: false
     }
     this.toHome = this.toHome.bind(this);
     this.startSearch = this.startSearch.bind(this);
@@ -18,6 +19,7 @@ class LoggedIn extends React.Component {
     this.doesMatch = this.doesMatch.bind(this);
     this.escapeResults = this.escapeResults.bind(this);
     this.toUser = this.toUser.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   startSearch() {
@@ -112,7 +114,19 @@ class LoggedIn extends React.Component {
   }
 
   toggleMenu(e){
-    console.log("e", e);
+    const menu = document.getElementById("side-menu");
+
+    if(this.state.showMenu === true){
+      setTimeout(() => {
+        this.setState({ showMenu: false });
+      }, 300);
+      menu.classList.remove("show-menu");
+    } else {
+      setTimeout(() => {
+        this.setState({ showMenu: true });
+      }, 300);
+      menu.classList.add('show-menu');
+    }
   }
 
   render () {
@@ -126,6 +140,7 @@ class LoggedIn extends React.Component {
     const navRender = this.props.mobile ? (
       <div className="mobile-nav">
         <i className="fas fa-bars" onClick={this.toggleMenu} id="menu-toggle-icon"></i>
+        <i className="fas fa-home" onClick={this.toHome} id="home-icon"></i>
         <div className="nav-top">
           <i className="fas fa-satellite" onClick={this.toHome}></i >
           <h1 className='astrogram-nav' onClick={this.toHome}>Astrogram</h1>
@@ -147,8 +162,11 @@ class LoggedIn extends React.Component {
           </div>
         </div >
 
-        <div className="side-menu" onClick={this.toggleMenu}>
-          <ul className="nav-icons" onClick={e => e.stopPropagation()}>
+        <div className="side-menu" id="side-menu" onClick={this.toggleMenu}>
+          <ul className="nav-icons" onClick={e => {
+            e.stopPropagation()
+            this.toggleMenu();
+          }}>
             <li id="post-icon" onClick={() => this.props.openModal('newPost')}><i className="fas fa-camera-retro"></i></li>
             <li id="search-icon"><i className="fas fa-search"></i></li>
             <li id="explore-icon"><Link to="/explore" className="far fa-compass"></Link></li>
