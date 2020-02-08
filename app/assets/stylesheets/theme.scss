@@ -78,11 +78,14 @@ body{
   border: 1px solid var(--items-border);
 }
 
-.post-form-modal{
+.post-form-modal,
+div.mobile-splash{
   background-color: var(--items-bg);
   border: 2px solid var(--items-border);
   color: var(--color)
 }
+
+
 
 .image-upload-form input[type="text"],
 .signup-form > form > input,

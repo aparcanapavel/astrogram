@@ -1,6 +1,6 @@
 import React from 'react';
 import SignupFormContainer from '../session/signup_form_container';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { AuthRoute } from '../../util/route_util';
 import ImageIndexContainer from '../images/image_index_container';
 import LoggedInContainer from './logged_in_container';
@@ -87,9 +87,21 @@ export default class Greeting extends React.Component {
           </Switch>
         </div>
       </div>
+    ) : (this.state.mobile ? (
+      <section className="noUserWelcomeContainer">
+        <div className="two-phones">
+          <img src={window.images.splash} alt="" />
+        </div>
+        <div className="mobile-splash">
+          <p>Welcome to</p>
+          <h1 className="astrogram-title">Astrogram</h1>
+          <Link to="/login">Log In</Link>
+          <p className="or-separator">OR</p>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      </section>
     ) : (
       <section className="noUserWelcomeContainer">
-
         <div className="welcomePhones">
             <img src={window.images.splash} alt=""/>
         </div>
@@ -100,10 +112,8 @@ export default class Greeting extends React.Component {
             <p>Developed by <a href="https://pavelaparcana.com/">Pavel Aparcana</a></p>
           </div>
         </div>
-
-        
-      </section>
-    );
+      </section>      
+    ));
 
     return display;
   }
