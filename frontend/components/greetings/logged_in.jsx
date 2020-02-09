@@ -233,7 +233,9 @@ class LoggedIn extends React.Component {
           <li id="theme-icon"><i className="fas fa-adjust" onClick={this.toggleTheme}></i></li>
           <li id="profile-icon"><Link to={`/users/${this.props.currentUser.id}/profile`} className="fas fa-user-astronaut"></Link></li>
         </ul>
-        <Modal />
+        <div style={{ position: 'absolute' }}>
+          <Modal />
+        </div>
       </nav >
     )
     return navRender;
