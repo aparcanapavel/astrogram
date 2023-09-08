@@ -1,7 +1,5 @@
 # Astrogram
 
-[Live Link](https://astrogram-prod.herokuapp.com/)
-
 This is **Astrogram** a single page clone of Instagram. *Astrogram* includes the basic features of Instagram, like creating an account, logging in, logging out, staying logged in after refreshing the page, and having a profile show page for users(current user pofile will display different settings). Further, *Astrogram* also has a feature outside of what is included in Instagram, uploading images from the browser. Finally, *Astrogram* has been built mobile first!
 
 
